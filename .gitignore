@@ -1,0 +1,21 @@
+# dependency directories
+node_modules
+
+# environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# log files
+*.log
+
+# caches
+.changelog
+.rpt2_cache
+
+# build directories
+build
+dist
+lib
