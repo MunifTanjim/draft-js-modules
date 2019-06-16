@@ -1,0 +1,45 @@
+{
+  "name": "@draft-js-hooks/editor",
+  "version": "0.0.0",
+  "description": "Draft.js Hooks Editor",
+  "keywords": [
+    "draftjs",
+    "editor",
+    "react",
+    "richtext",
+    "hooks"
+  ],
+  "homepage": "https://github.com/MunifTanjim/draft-js-hooks/tree/master/packages/editor#readme",
+  "bugs": "https://github.com/MunifTanjim/draft-js-hooks/issues",
+  "license": "MIT",
+  "author": "MunifTanjim (https://muniftanjim.com)",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/MunifTanjim/draft-js-hooks",
+  "scripts": {
+    "prebuild": "tsc",
+    "build:cjs": "bili --format cjs --format cjs-min",
+    "build:esm": "bili --format esm --format esm-min",
+    "build:umd": "bili --format umd --format umd-min",
+    "build": "npm-run-all build:*",
+    "postbuild": "./scripts/postbuild.sh",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "prepack": "rimraf dist/* && yarn build"
+  },
+  "dependencies": {
+    "draft-js": "^0.11.0-beta2"
+  },
+  "peerDependencies": {
+    "react": "^16.8",
+    "react-dom": "^16.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
