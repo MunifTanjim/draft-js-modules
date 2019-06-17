@@ -25,8 +25,8 @@
       "allowBranch": "master",
       "conventionalCommits": true,
       "changelogPreset": "conventional-changelog-conventionalcommits",
-      "noGitTagVersion": true,
-      "noPush": true
+      "message": "chore: publish package(s)",
+      "push": false
     }
   },
   "ignoreChanges": ["**/*.md"],
