@@ -33,9 +33,10 @@
     "test:coverage": "jest --coverage",
     "prepack": "rimraf dist/* && yarn build"
   },
+  "devDependencies": {
+    "@draft-js-hooks/editor": "^0.0"
+  },
   "peerDependencies": {
-    "@draft-js-hooks/editor": "^0.0",
-    "draft-js": "^0.11.0-beta2",
     "react": "^16.8",
     "react-dom": "^16.8"
   },
