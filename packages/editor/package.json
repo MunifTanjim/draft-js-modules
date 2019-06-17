@@ -1,6 +1,6 @@
 {
   "name": "@draft-js-hooks/editor",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Draft.js Hooks Editor",
   "keywords": [
     "draftjs",

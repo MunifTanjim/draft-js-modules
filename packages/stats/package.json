@@ -1,6 +1,6 @@
 {
   "name": "@draft-js-hooks/stats",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Draft.js Stats Hook",
   "keywords": [
     "draftjs",
@@ -34,7 +34,7 @@
     "prepack": "rimraf dist/* && yarn build"
   },
   "devDependencies": {
-    "@draft-js-hooks/editor": "^0.0"
+    "@draft-js-hooks/editor": "^0.0.1"
   },
   "peerDependencies": {
     "react": "^16.8",
