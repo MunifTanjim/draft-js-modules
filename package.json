@@ -28,6 +28,7 @@
     "@typescript-eslint/parser": "^1.10.2",
     "babel-eslint": "10.x",
     "bili": "^4.8.0",
+    "conventional-changelog-conventionalcommits": "^3.0.2",
     "draft-js": "^0.11.0-beta2",
     "eslint": "5.x",
     "eslint-config-prettier": "^4.3.0",
@@ -58,9 +59,5 @@
     "commitizen": {
       "path": "@commitlint/prompt"
     }
-  },
-  "workspaces": [
-    "packages/*",
-    "site"
-  ]
+  }
 }

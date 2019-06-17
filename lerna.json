@@ -24,15 +24,14 @@
     "version": {
       "allowBranch": "master",
       "conventionalCommits": true,
-      "changelogPreset": "conventionalcommits",
+      "changelogPreset": "conventional-changelog-conventionalcommits",
       "noGitTagVersion": true,
       "noPush": true
     }
   },
   "ignoreChanges": ["**/*.md"],
-  "npmClient": "yarn",
-  "npmClientArgs": ["--no-lockfile"],
+  "npmClient": "npm",
+  "npmClientArgs": ["--no-package-lock"],
   "packages": ["packages/*", "site"],
-  "useWorkspaces": true,
   "version": "independent"
 }
