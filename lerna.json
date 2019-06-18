@@ -30,8 +30,9 @@
     }
   },
   "ignoreChanges": ["**/*.md"],
-  "npmClient": "npm",
-  "npmClientArgs": ["--no-package-lock"],
+  "npmClient": "yarn",
+  "npmClientArgs": ["--no-lockfile"],
   "packages": ["packages/*", "site"],
+  "useWorkspaces": true,
   "version": "independent"
 }

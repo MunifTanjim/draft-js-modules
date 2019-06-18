@@ -55,5 +55,9 @@
     "commitizen": {
       "path": "@commitlint/prompt"
     }
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "site"
+  ]
 }

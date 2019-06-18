@@ -19,3 +19,7 @@ node_modules
 build
 dist
 lib
+
+# others
+package-lock.json
+yarn.lock
