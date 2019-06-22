@@ -1,17 +1,20 @@
+type ContentBlock = import('draft-js').ContentBlock
+type DraftInlineStyle = import('draft-js').DraftInlineStyle
 type Hook = import('../../types').Hook
-type HookProps = import('../../types').HookProps
 type RegularEditorProps = import('../../types').RegularEditorProps
-type StyleMap = import('../../types').StyleMap
+type StyleMap = import('draft-js').DraftStyleMap
 
 export const getCustomStyleFn = (
   hooks: Hook[],
-  props: RegularEditorProps | HookProps
-): NonNullable<HookProps['customStyleFn']> => (
-  styleNames: Draft.DraftInlineStyle,
-  block: Draft.ContentBlock
+  props: RegularEditorProps
+): NonNullable<RegularEditorProps['customStyleFn']> => (
+  styleNames: DraftInlineStyle,
+  block: ContentBlock
 ): StyleMap => {
   const customStyleFns = [props.customStyleFn].concat(
-    hooks.map(({ customStyleFn }): HookProps['customStyleFn'] => customStyleFn)
+    hooks.map(
+      ({ customStyleFn }): RegularEditorProps['customStyleFn'] => customStyleFn
+    )
   )
 
   for (const customStyleFn of customStyleFns) {

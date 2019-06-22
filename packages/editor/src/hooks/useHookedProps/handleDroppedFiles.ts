@@ -1,17 +1,18 @@
 import { invokeHandlers } from '../../utils/invokeHandlers'
 
+type DraftHandleValue = import('draft-js').DraftHandleValue
 type Hook = import('../../types').Hook
 type RegularEditorProps = import('../../types').RegularEditorProps
 
 export const getHandleDroppedFiles = (
   hooks: Hook[],
   props: RegularEditorProps
-): NonNullable<Draft.EditorProps['handleDroppedFiles']> => (
+): NonNullable<RegularEditorProps['handleDroppedFiles']> => (
   ...parameters
-): Draft.DraftHandleValue => {
+): DraftHandleValue => {
   const handlers = [props.handleDroppedFiles].concat(
     hooks.map(
-      ({ handleDroppedFiles }): Draft.EditorProps['handleDroppedFiles'] =>
+      ({ handleDroppedFiles }): RegularEditorProps['handleDroppedFiles'] =>
         handleDroppedFiles
     )
   )

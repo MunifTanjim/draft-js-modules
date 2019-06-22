@@ -32,10 +32,11 @@
     "test:coverage": "jest --coverage",
     "prepack": "rimraf dist/* && yarn build"
   },
-  "dependencies": {
-    "draft-js": "^0.11.0-beta2"
+  "devDependencies": {
+    "draft-js": "0.11.0-beta3"
   },
   "peerDependencies": {
+    "draft-js": "0.11.0-beta3",
     "react": "^16.8",
     "react-dom": "^16.8"
   },

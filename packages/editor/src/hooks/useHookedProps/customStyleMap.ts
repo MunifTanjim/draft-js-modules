@@ -1,6 +1,6 @@
 type Hook = import('../../types').Hook
 type RegularEditorProps = import('../../types').RegularEditorProps
-type StyleMap = import('../../types').StyleMap
+type StyleMap = import('draft-js').DraftStyleMap
 
 function mergeStyleMap(
   styleMap: StyleMap,

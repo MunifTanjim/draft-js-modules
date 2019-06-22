@@ -31,7 +31,6 @@ export function Editor({
   const hookedProps = useHookedProps(hooks, props, getStore)
 
   return (
-    // @ts-ignore
     <RegularEditor
       {...props}
       {...hookedProps}

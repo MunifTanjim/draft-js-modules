@@ -1,6 +1,6 @@
 import { DefaultDraftBlockRenderMap } from 'draft-js'
 
-type BlockRenderMap = import('../../types').BlockRenderMap
+type BlockRenderMap = import('../../types').DraftBlockRenderMap
 type Hook = import('../../types').Hook
 type RegularEditorProps = import('../../types').RegularEditorProps
 

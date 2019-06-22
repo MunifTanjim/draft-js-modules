@@ -4,12 +4,12 @@ type RegularEditorProps = import('../../types').RegularEditorProps
 export const getBlockStyleFn = (
   hooks: Hook[],
   props: RegularEditorProps
-): NonNullable<Draft.EditorProps['blockStyleFn']> => (
+): NonNullable<RegularEditorProps['blockStyleFn']> => (
   block: Draft.ContentBlock
 ): string => {
   const blockStyleFns = [props.blockStyleFn].concat(
     hooks.map(
-      ({ blockStyleFn }): Draft.EditorProps['blockStyleFn'] => blockStyleFn
+      ({ blockStyleFn }): RegularEditorProps['blockStyleFn'] => blockStyleFn
     )
   )
 

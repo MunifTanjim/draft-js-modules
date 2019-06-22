@@ -1,5 +1,6 @@
 import { getDefaultKeyBinding } from 'draft-js'
 
+type DraftEditorCommand = import('draft-js').DraftEditorCommand
 type KeyboardEvent = import('react').KeyboardEvent
 type Hook = import('../../types').Hook
 type RegularEditorProps = import('../../types').RegularEditorProps
@@ -7,12 +8,12 @@ type RegularEditorProps = import('../../types').RegularEditorProps
 export const getKeyBindingFn = (
   hooks: Hook[],
   props: RegularEditorProps
-): NonNullable<Draft.EditorProps['keyBindingFn']> => (
+): NonNullable<RegularEditorProps['keyBindingFn']> => (
   event: KeyboardEvent
-): Draft.DraftEditorCommand | string | null => {
+): DraftEditorCommand | string | null => {
   const keyBindingFns = [props.keyBindingFn].concat(
     hooks.map(
-      ({ keyBindingFn }): Draft.EditorProps['keyBindingFn'] => keyBindingFn
+      ({ keyBindingFn }): RegularEditorProps['keyBindingFn'] => keyBindingFn
     )
   )
 

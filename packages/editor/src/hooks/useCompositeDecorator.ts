@@ -1,7 +1,7 @@
 import { CompositeDecorator, EditorState } from 'draft-js'
 import { useEffect, useMemo } from 'react'
 
-type DraftDecorator = import('../types').DraftDecorator
+type DraftDecorator = import('draft-js').DraftDecorator
 type GetStore = import('../types').GetStore
 type Hook = import('../types').Hook
 type RegularEditorProps = import('../types').RegularEditorProps
@@ -10,7 +10,7 @@ export function useCompositeDecorator(
   hooks: Hook[],
   _props: RegularEditorProps,
   getStore: GetStore
-): Draft.CompositeDecorator {
+): void {
   const compositeDecorator = useMemo((): Draft.CompositeDecorator => {
     const decoratorsList = hooks.reduce<DraftDecorator[]>(
       (decoratorsList, { decorators = [] }): DraftDecorator[] => {
@@ -35,6 +35,4 @@ export function useCompositeDecorator(
       )
     }
   }, [compositeDecorator, getStore])
-
-  return compositeDecorator
 }

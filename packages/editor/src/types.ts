@@ -2,54 +2,18 @@ import * as Draft from 'draft-js'
 import * as Immutable from 'immutable'
 import * as React from 'react'
 
-export type StyleMap = {
-  [styleName: string]: {
-    [key: string]: string
-  }
-}
-
 export type DraftCustomRendererObject = {
   component?: React.Component | React.FC
   editable?: boolean
   props?: object
 }
 
-// Draft.DraftDecorator
-export type DraftDecorator = {
-  strategy: (
-    block: Draft.ContentBlock,
-    callback: (start: number, end: number) => void,
-    contentState: Draft.ContentState
-  ) => void
-  component: React.FunctionComponent
-  props?: Record<string, any>
-}
-
-// Draft.EditorProps['blockRenderMap']
-export type BlockRenderMap = Immutable.Map<
-  Draft.DraftBlockType | string,
+// `draft-js` & `@types/draft-js` has `immutable` version mismatch
+// Draft.DraftBlockRenderMap
+export type DraftBlockRenderMap = Immutable.Map<
+  Draft.DraftBlockType,
   Draft.DraftBlockRenderConfig
 >
-
-// Draft.EditorProps['customStyleFn']
-export type CustomStyleFn = (
-  styleNames: Draft.DraftInlineStyle,
-  block: Draft.ContentBlock
-) => StyleMap
-
-// Draft.EditorProps['handleBeforeInput']
-export type HandleBeforeInput = (
-  chars: string,
-  editorState: Draft.EditorState,
-  eventTimeStamp: number
-) => Draft.DraftHandleValue
-
-// Draft.EditorProps['handleKeyCommand']
-export type HandleKeyCommand = (
-  command: Draft.DraftEditorCommand | string,
-  editorState: Draft.EditorState,
-  eventTimeStamp: number
-) => Draft.DraftHandleValue
 
 type Get<T> = () => T
 type GetState<T> = Get<T>
@@ -74,12 +38,6 @@ type HookPropNames =
   | 'keyBindingFn'
   | 'onChange'
 
-type OverriddenHookPropNames =
-  | 'blockRenderMap'
-  | 'customStyleFn'
-  | 'handleBeforeInput'
-  | 'handleKeyCommand'
-
 export type Store = {
   getEditor: Get<Draft.Editor | null>
   getEditorState: GetState<Draft.EditorState>
@@ -101,18 +59,14 @@ export type InternalStore = {
 
 export type HookProps = Pick<
   Draft.EditorProps,
-  Exclude<HookPropNames, OverriddenHookPropNames | 'onChange'>
+  Exclude<HookPropNames, 'onChange'>
 > & {
-  blockRenderMap?: BlockRenderMap
-  customStyleFn?: CustomStyleFn
-  handleKeyCommand?: HandleKeyCommand
-  handleBeforeInput?: HandleBeforeInput
   onChange?: (editorState: Draft.EditorState) => Draft.EditorState
 }
 
 export interface Hook extends HookProps {
   init?: (store: Store) => void
-  decorators?: DraftDecorator[]
+  decorators?: Draft.DraftDecorator[]
   [key: string]: any
 }
 
