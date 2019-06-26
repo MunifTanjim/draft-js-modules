@@ -1,5 +1,5 @@
 type Hook = import('../../types').Hook
-type RegularEditorProps = import('../../types').RegularEditorProps
+type EditorProps = import('../../types').EditorProps
 type StyleMap = import('draft-js').DraftStyleMap
 
 function mergeStyleMap(
@@ -24,7 +24,7 @@ function mergeStyleMap(
 
 export const getCustomStyleMap = (
   hooks: Hook[],
-  props: RegularEditorProps
+  props: EditorProps
 ): StyleMap => {
   const customStyleMap = hooks.reduce<StyleMap>(
     (extendedCustomStyleMap: StyleMap, { customStyleMap }): StyleMap => {

@@ -1,12 +1,12 @@
 import { DefaultDraftBlockRenderMap } from 'draft-js'
 
-type BlockRenderMap = import('../../types').DraftBlockRenderMap
+type BlockRenderMap = import('draft-js').DraftBlockRenderMap
+type EditorProps = import('../../types').EditorProps
 type Hook = import('../../types').Hook
-type RegularEditorProps = import('../../types').RegularEditorProps
 
 export const getBlockRenderMap = (
   hooks: Hook[],
-  props: RegularEditorProps
+  props: EditorProps
 ): BlockRenderMap => {
   const blockRenderMap = hooks.reduce<BlockRenderMap>(
     (extendedBlockRenderMap, { blockRenderMap }): BlockRenderMap => {

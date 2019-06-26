@@ -1,21 +1,24 @@
 import { invokeHandlers } from '../../utils/invokeHandlers'
 
 type DraftHandleValue = import('draft-js').DraftHandleValue
+type EditorProps = import('../../types').EditorProps
 type Hook = import('../../types').Hook
-type RegularEditorProps = import('../../types').RegularEditorProps
+type RegularEditorProps = import('draft-js').EditorProps
+type Store = import('../../types').Store
 
 export const getHandleBeforeInput = (
   hooks: Hook[],
-  props: RegularEditorProps
+  props: EditorProps,
+  store: Store
 ): NonNullable<RegularEditorProps['handleBeforeInput']> => (
   ...parameters
 ): DraftHandleValue => {
   const handlers = [props.handleBeforeInput].concat(
     hooks.map(
-      ({ handleBeforeInput }): RegularEditorProps['handleBeforeInput'] =>
+      ({ handleBeforeInput }): EditorProps['handleBeforeInput'] =>
         handleBeforeInput
     )
   )
 
-  return invokeHandlers(handlers, parameters)
+  return invokeHandlers(handlers, parameters, store)
 }

@@ -13,34 +13,36 @@ import { getHandlePastedText } from './handlePastedText'
 import { getHandleReturn } from './handleReturn'
 import { getKeyBindingFn } from './keyBindingFn'
 
+type EditorProps = import('../../types').EditorProps
 type GetStore = import('../../types').GetStore
 type Hook = import('../../types').Hook
-type HookProps = import('../../types').HookProps
-type RegularEditorProps = import('../../types').RegularEditorProps
+type RegularEditorProps = import('draft-js').EditorProps
 
 export function useHookedProps(
   hooks: Hook[],
-  props: RegularEditorProps,
+  props: EditorProps,
   getStore: GetStore
-): HookProps {
-  const hookedProps = useMemo(
-    (): HookProps => ({
-      blockRendererFn: getBlockRendererFn(hooks, props),
+): RegularEditorProps {
+  const hookedProps = useMemo((): RegularEditorProps => {
+    const store = getStore()
+
+    return {
+      ...props,
+      blockRendererFn: getBlockRendererFn(hooks, props, store),
       blockRenderMap: getBlockRenderMap(hooks, props),
-      blockStyleFn: getBlockStyleFn(hooks, props),
+      blockStyleFn: getBlockStyleFn(hooks, props, store),
+      customStyleFn: getCustomStyleFn(hooks, props, store),
       customStyleMap: getCustomStyleMap(hooks, props),
-      customStyleFn: getCustomStyleFn(hooks, props),
-      handleKeyCommand: getHandleKeyCommand(hooks, props, getStore),
-      handleReturn: getHandleReturn(hooks, props),
-      handleBeforeInput: getHandleBeforeInput(hooks, props),
-      handlePastedFiles: getHandlePastedFiles(hooks, props),
-      handlePastedText: getHandlePastedText(hooks, props),
-      handleDroppedFiles: getHandleDroppedFiles(hooks, props),
-      handleDrop: getHandleDrop(hooks, props),
-      keyBindingFn: getKeyBindingFn(hooks, props)
-    }),
-    [getStore, hooks, props]
-  )
+      handleKeyCommand: getHandleKeyCommand(hooks, props, store),
+      handleReturn: getHandleReturn(hooks, props, store),
+      handleBeforeInput: getHandleBeforeInput(hooks, props, store),
+      handlePastedFiles: getHandlePastedFiles(hooks, props, store),
+      handlePastedText: getHandlePastedText(hooks, props, store),
+      handleDroppedFiles: getHandleDroppedFiles(hooks, props, store),
+      handleDrop: getHandleDrop(hooks, props, store),
+      keyBindingFn: getKeyBindingFn(hooks, props, store)
+    }
+  }, [getStore, hooks, props])
 
   return hookedProps
 }

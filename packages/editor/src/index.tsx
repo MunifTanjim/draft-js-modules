@@ -5,7 +5,7 @@ import { useEditorStore } from './hooks/useEditorStore'
 import { useHookedProps } from './hooks/useHookedProps'
 
 type Hook = import('./types').Hook
-type Props = import('./types').EditorProps
+type EditorProps = import('./types').EditorProps
 
 const emptyHooks: Hook[] = []
 
@@ -13,7 +13,7 @@ export function Editor({
   hooks = emptyHooks,
   store,
   ...props
-}: Props): React.ReactElement {
+}: EditorProps): React.ReactElement {
   const {
     editor,
     editorState,
@@ -22,17 +22,16 @@ export function Editor({
     getStore
   } = useEditorStore(hooks, props)
 
-  useCompositeDecorator(hooks, props, getStore)
-
   useEffect((): void => {
     if (store) store.current = getStore()
   }, [getStore, store])
+
+  useCompositeDecorator(hooks, props, getStore)
 
   const hookedProps = useHookedProps(hooks, props, getStore)
 
   return (
     <RegularEditor
-      {...props}
       {...hookedProps}
       editorState={editorState}
       onChange={setEditorState}

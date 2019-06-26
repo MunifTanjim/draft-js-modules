@@ -3,21 +3,21 @@ import { invokeHandlers } from '../../utils/invokeHandlers'
 
 type DraftEditorCommand = import('draft-js').DraftEditorCommand
 type DraftHandleValue = import('draft-js').DraftHandleValue
+type EditorProps = import('../../types').EditorProps
 type EditorState = import('draft-js').EditorState
-type GetStore = import('../../types').GetStore
 type Hook = import('../../types').Hook
-type RegularEditorProps = import('../../types').RegularEditorProps
+type RegularEditorProps = import('draft-js').EditorProps
+type Store = import('../../types').Store
 
-const getDefaultHandleKeyCommand = (
-  getStore: GetStore
-): NonNullable<RegularEditorProps['handleKeyCommand']> => (
-  command: DraftEditorCommand,
+const defaultHandleKeyCommand = (
+  store: Store,
+  command: DraftEditorCommand | string,
   editorState: EditorState
 ): DraftHandleValue => {
   const newEditorState = RichUtils.handleKeyCommand(editorState, command)
 
   if (newEditorState) {
-    getStore().setEditorState(newEditorState)
+    store.setEditorState(newEditorState)
     return 'handled'
   }
 
@@ -26,19 +26,19 @@ const getDefaultHandleKeyCommand = (
 
 export const getHandleKeyCommand = (
   hooks: Hook[],
-  props: RegularEditorProps,
-  getStore: GetStore
+  props: EditorProps,
+  store: Store
 ): NonNullable<RegularEditorProps['handleKeyCommand']> => (
   ...parameters
 ): DraftHandleValue => {
   const handlers = [props.handleKeyCommand]
     .concat(
       hooks.map(
-        ({ handleKeyCommand }): RegularEditorProps['handleKeyCommand'] =>
+        ({ handleKeyCommand }): EditorProps['handleKeyCommand'] =>
           handleKeyCommand
       )
     )
-    .concat(getDefaultHandleKeyCommand(getStore))
+    .concat(defaultHandleKeyCommand)
 
-  return invokeHandlers(handlers, parameters)
+  return invokeHandlers(handlers, parameters, store)
 }
