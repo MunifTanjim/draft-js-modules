@@ -27,11 +27,12 @@
     "build:cjs": "bili --format cjs --format cjs-min",
     "build:esm": "bili --format esm --format esm-min",
     "build:umd": "bili --format umd --format umd-min",
-    "build": "npm-run-all build:*",
+    "build": "yarn build:cjs && yarn build:esm && yarn build:umd",
     "postbuild": "./scripts/postbuild.sh",
+    "clean": "rimraf dist/*",
+    "prepack": "yarn clean && yarn build",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "prepack": "rimraf dist/* && yarn build"
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@draft-js-hooks/editor": "^0.0.1"
