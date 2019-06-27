@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>0.0.2 (2019-06-27)</small>
+
+* build: fix build steps ([a936bc4](https://github.com/MunifTanjim/draft-js-hooks/commit/a936bc4))
+
+
+
+
+
 ## <small>0.0.1 (2019-06-17)</small>
 
 * chore(stats): (re)move dependencies ([f9f82e8](https://github.com/MunifTanjim/draft-js-hooks/commit/f9f82e8))
