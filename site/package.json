@@ -1,6 +1,7 @@
 {
   "name": "@internal/site",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -8,10 +9,11 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@draft-js-hooks/editor": "^0.0.1",
-    "@draft-js-hooks/stats": "^0.0.1",
+    "@draft-js-hooks/editor": "^0.0.2",
+    "@draft-js-hooks/hashtag": "^0.0.1",
+    "@draft-js-hooks/stats": "^0.0.2",
     "babel-plugin-styled-components": "^1.10.1",
-    "draft-js": "^0.11.0-beta2",
+    "draft-js": "^0.11.0-beta3",
     "gatsby": "^2.9.9",
     "gatsby-image": "^2.1.4",
     "gatsby-plugin-manifest": "^2.1.1",

@@ -1,5 +1,6 @@
 import { Editor } from '@draft-js-hooks/editor'
 import { getStatsHook } from '@draft-js-hooks/stats'
+import { getHashtagHook } from '@draft-js-hooks/hashtag'
 import { EditorState } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 import React, { useCallback, useRef, useState } from 'react'
@@ -17,9 +18,18 @@ const Seperator = styled.hr`
   margin: 0.5em 0;
 `
 
-const StatsHook = getStatsHook()
+const Hashtag = styled.span`
+  color: ${p => p.theme.colors.primary};
+`
 
-const hooks = [StatsHook]
+const StatsHook = getStatsHook()
+const HashtagHook = getHashtagHook({
+  Component: ({ decoratedText, offsetKey }) => (
+    <Hashtag data-offset-key={offsetKey}>{decoratedText}</Hashtag>
+  )
+})
+
+const hooks = [StatsHook, HashtagHook]
 
 function HookedEditor() {
   const store = useRef(null)
