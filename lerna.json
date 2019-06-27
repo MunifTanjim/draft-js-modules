@@ -24,8 +24,7 @@
     "version": {
       "allowBranch": "master",
       "conventionalCommits": true,
-      "changelogPreset": "conventional-changelog-conventionalcommits",
-      "message": "chore: publish package(s)",
+      "message": "chore: publish %s",
       "push": false
     }
   },
@@ -34,5 +33,5 @@
   "npmClientArgs": ["--no-lockfile"],
   "packages": ["packages/*", "site"],
   "useWorkspaces": true,
-  "version": "independent"
+  "version": "0.0.2"
 }

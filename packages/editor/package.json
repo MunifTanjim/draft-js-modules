@@ -22,14 +22,15 @@
   "types": "dist/index.d.ts",
   "repository": "https://github.com/MunifTanjim/draft-js-hooks",
   "scripts": {
-    "prebuild": "tsc",
+    "prebuild": "yarn clean",
     "build:cjs": "bili --format cjs --format cjs-min",
     "build:esm": "bili --format esm --format esm-min",
     "build:umd": "bili --format umd --format umd-min",
     "build": "yarn build:cjs && yarn build:esm && yarn build:umd",
     "postbuild": "./scripts/postbuild.sh",
     "clean": "rimraf dist/*",
-    "prepack": "yarn clean && yarn build",
+    "prepare": "yarn build",
+    "pretest": "tsc",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },

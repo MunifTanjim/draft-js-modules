@@ -3,15 +3,16 @@
   "homepage": "https://github.com/MunifTanjim/draft-js-hooks#readme",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "prebootstrap": "yarn",
+    "bootstrap": "lerna run prepare",
     "changelog": "lerna-changelog",
     "commit": "npx commit",
-    "lerna:publish": "lerna publish from-package",
+    "publish": "lerna publish from-package",
     "packages:clean": "rimraf packages/*/dist/*",
-    "packages:build": "lerna run build --ignore=@internal/*",
+    "packages:build": "lerna run build --scope=@draft-js-hooks/*",
     "site:build": "lerna run build --scope=@*/site",
     "site:start": "lerna run start --scope=@*/site",
-    "test": "lerna run test --ignore=@internal/*"
+    "test": "lerna run test --scope=@draft-js-hooks/*"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
@@ -28,7 +29,6 @@
     "@typescript-eslint/parser": "^1.10.2",
     "babel-eslint": "10.x",
     "bili": "^4.8.0",
-    "conventional-changelog-conventionalcommits": "^3.0.2",
     "draft-js": "0.11.0-beta3",
     "eslint": "5.x",
     "eslint-config-prettier": "^4.3.0",
