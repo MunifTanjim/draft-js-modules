@@ -1,7 +1,6 @@
 {
   "name": "@internal/site",
   "private": true,
-  "version": "0.0.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
