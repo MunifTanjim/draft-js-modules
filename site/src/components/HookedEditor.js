@@ -1,9 +1,9 @@
 import { Editor } from '@draft-js-hooks/editor'
-import { getStatsHook } from '@draft-js-hooks/stats'
 import { getHashtagHook } from '@draft-js-hooks/hashtag'
+import { getStatsHook } from '@draft-js-hooks/stats'
 import { EditorState } from 'draft-js'
 import 'draft-js/dist/Draft.css'
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Box } from 'rebass'
 import styled from 'styled-components'
 
@@ -29,11 +29,16 @@ const HashtagHook = getHashtagHook({
   )
 })
 
-const hooks = [StatsHook, HashtagHook]
+const hooks = [HashtagHook, StatsHook]
 
 function HookedEditor() {
   const store = useRef(null)
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const onClick = useCallback(() => {
     store.current.getEditor().focus()
@@ -45,13 +50,15 @@ function HookedEditor() {
 
   return (
     <EditorWrapper onClick={onClick} mx={'auto'}>
-      <Editor
-        store={store}
-        editorState={editorState}
-        onChange={onChange}
-        placeholder="Have something to write?"
-        hooks={hooks}
-      />
+      {mounted ? (
+        <Editor
+          store={store}
+          editorState={editorState}
+          onChange={onChange}
+          placeholder="Have something to write?"
+          hooks={hooks}
+        />
+      ) : null}
       <Seperator />
       <StatsHook.Stats />
     </EditorWrapper>
