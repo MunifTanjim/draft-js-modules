@@ -3,7 +3,7 @@ import React from 'react'
 type Props = import('../types').HashtagComponentProps
 
 function DefaultHashtagComponent({
-  children,
+  decoratedText,
   offsetKey
 }: Props): React.ReactElement {
   return (
@@ -11,7 +11,7 @@ function DefaultHashtagComponent({
       data-offset-key={offsetKey}
       className={`draft-js-hook-hashtag default-component`}
     >
-      {children}
+      {decoratedText}
     </span>
   )
 }
