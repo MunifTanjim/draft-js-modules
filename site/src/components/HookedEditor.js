@@ -20,13 +20,12 @@ const Seperator = styled.hr`
 
 const Hashtag = styled.span`
   color: ${p => p.theme.colors.primary};
+  cursor: pointer;
 `
 
 const StatsHook = getStatsHook()
 const HashtagHook = getHashtagHook({
-  Component: ({ decoratedText, offsetKey }) => (
-    <Hashtag data-offset-key={offsetKey}>{decoratedText}</Hashtag>
-  )
+  Component: ({ children }) => <Hashtag children={children} />
 })
 
 const hooks = [HashtagHook, StatsHook]
