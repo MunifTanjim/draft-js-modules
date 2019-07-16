@@ -6995,7 +6995,7 @@ gatsby-graphiql-explorer@^0.2.3:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-image@^2.2.4:
+gatsby-image@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.2.6.tgz#669191cdd5446242b0f3982df156a4bea971c5a8"
   integrity sha512-gPAt6vUUNVN5iftBrwZykOMGLOAameq9IBCXj5z/egPFIWF62GoqkWQX1/hO71qhyEszNYq+ilwBzkJVsJIP2Q==
@@ -7027,7 +7027,7 @@ gatsby-page-utils@^0.0.5:
     micromatch "^3.1.10"
     slash "^1.0.0"
 
-gatsby-plugin-manifest@^2.2.1:
+gatsby-plugin-manifest@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.2.3.tgz#f701620c11132bfbff20929fa632e326cdd9b9b8"
   integrity sha512-fK43rI6/xc6Xiu44obyPRxT8efTir9LpicptrZjRVLKFm3ghwATpW3WIotRd6qIs2W45m3znzjcaEanPcK9CjQ==
@@ -7049,14 +7049,14 @@ gatsby-plugin-page-creator@^2.1.5:
     lodash "^4.17.14"
     micromatch "^3.1.10"
 
-gatsby-plugin-react-helmet@^3.1.0:
+gatsby-plugin-react-helmet@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.2.tgz#cde010f708581db4afbb3014257a6cef5c062116"
   integrity sha512-9rqa0D7qV+d7lMcnoV2Y4PTSNJcolTVZDygINYAboeef8fflcvGmOYUl16SbC0HjRjdGSiS9bmcsUNHeYPC/7g==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-sharp@^2.2.2:
+gatsby-plugin-sharp@^2.2.7:
   version "2.2.7"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.2.7.tgz#088a51e2e3e034da5ca2bb9531f5687f7ce48656"
   integrity sha512-aEa8c6f+RY4SnfZh3iyVFwCHd2EuHxOamLuNdS2y345YPpjwHC1rDzkJrFo28iw+wOvk7h+gcZV2qj3+/QjGSg==
@@ -7079,7 +7079,7 @@ gatsby-plugin-sharp@^2.2.2:
     sharp "^0.22.1"
     svgo "^1.2.0"
 
-gatsby-plugin-styled-components@^3.0.7:
+gatsby-plugin-styled-components@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.1.2.tgz#1f8ab130e2fdc02fbc8b158b237e7f620d15c2a9"
   integrity sha512-9MjGXl5ddN2L7jKlSjrobtxbR1gIIpBOmFcfkmNPdL/7rMUkWR6bLmAQ6fUPGCIwTLyvYsNjBZhtAwhUY+NTBw==
@@ -7095,7 +7095,7 @@ gatsby-react-router-scroll@^2.1.3:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-source-filesystem@^2.1.2:
+gatsby-source-filesystem@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.5.tgz#2d5afe0fdfe95fbc6d0ec40498dbc201c25f5a72"
   integrity sha512-8YSuRsn14YllCv8egkGwCFMoF84lGhKmwFXrpzaJS0OELA8WaHaHjfo5olB1xd5IE4na8il8c6MCj/btlQlkuQ==
@@ -7138,7 +7138,7 @@ gatsby-telemetry@^1.1.6:
     stack-utils "1.0.2"
     uuid "3.3.2"
 
-gatsby-transformer-sharp@^2.2.1:
+gatsby-transformer-sharp@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.2.3.tgz#0e127578c185007e9f6ebb8b517415188b2f73b3"
   integrity sha512-nBIbjETRmwXL7QJA+lX8Xi4+IIlr2+6HSbqY/sdALqSvcm3Fbb1C0j1P9RRTMkptBslTGrfHJA8Me18p7nJTWw==
@@ -7151,10 +7151,10 @@ gatsby-transformer-sharp@^2.2.1:
     semver "^5.6.0"
     sharp "^0.22.1"
 
-gatsby@^2.13.2:
-  version "2.13.23"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.23.tgz#72e6e17facb0e0a227ab3ed7d9c793b5558dbd53"
-  integrity sha512-CI2yCxm9VFLo+CjFmxuHR0bUP3LyHZsCw0Wy7QEPoKFf6m068GK00Ol1o05Y2x1T+gTsIbzP1AWHeWm4L/7AZQ==
+gatsby@^2.13.24:
+  version "2.13.24"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.24.tgz#0a3dc980619fdd5e5ba58b7e350b6a29aaff6b21"
+  integrity sha512-pIrYKc0mxXKM/QtaSREIE0n42Ib9MRMwggioythmm7qlRAbSkslmSP/Lkky6APRijy0uimFJBy4HU/h2SKAnIw==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -14400,7 +14400,7 @@ style-loader@^0.21.0:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
-styled-components@^4.3.1:
+styled-components@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.3.2.tgz#4ca81918c812d3006f60ac5fdec7d6b64a9509cc"
   integrity sha512-NppHzIFavZ3TsIU3R1omtddJ0Bv1+j50AKh3ZWyXHuFvJq1I8qkQ5mZ7uQgD89Y8zJNx2qRo6RqAH1BmoVafHw==
