@@ -2,7 +2,7 @@ import { extractHashtags } from '../utils/extractHashtags'
 
 type ContentBlock = import('draft-js').ContentBlock
 
-const hashtagStrategy = (
+export const hashtagStrategy = (
   contentBlock: ContentBlock,
   callback: Function
 ): void => {
@@ -13,5 +13,3 @@ const hashtagStrategy = (
     callback(startPos, endPos)
   })
 }
-
-export default hashtagStrategy
