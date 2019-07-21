@@ -79,7 +79,3 @@ export type EditorProps = Pick<
     hooks?: Hook[]
     store?: React.MutableRefObject<Store | undefined>
   }
-
-export declare const Editor: (props: EditorProps) => React.ReactElement
-
-export default Editor

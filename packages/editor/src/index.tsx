@@ -4,6 +4,8 @@ import { useCompositeDecorator } from './hooks/useCompositeDecorator'
 import { useEditorStore } from './hooks/useEditorStore'
 import { useHookedProps } from './hooks/useHookedProps'
 
+export * from './types'
+
 type Hook = import('./types').Hook
 type EditorProps = import('./types').EditorProps
 
