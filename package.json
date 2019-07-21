@@ -10,6 +10,7 @@
     "publish": "lerna publish from-package",
     "packages:clean": "rimraf packages/*/dist/*",
     "packages:build": "lerna run build --scope=@draft-js-hooks/*",
+    "packages:watch": "lerna run --parallel watch --scope=@draft-js-hooks/*",
     "site:build": "yarn workspace site build",
     "site:start": "yarn workspace site start",
     "test": "lerna run test --scope=@draft-js-hooks/*"
@@ -21,6 +22,7 @@
     "@commitlint/prompt-cli": "^8.0.0",
     "@types/draft-js": "^0.10.34",
     "@types/jest": "^24.0.13",
+    "@types/katex": "^0.10.1",
     "@types/node": "^12.0.7",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
