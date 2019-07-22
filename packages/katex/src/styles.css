@@ -17,6 +17,16 @@
   cursor: pointer;
 }
 
+.draft-js-hooks-katex.INLINETEX .TeXInput {
+  text-align: center;
+}
+
+.draft-js-hooks-katex.TEXBLOCK .TeXInput {
+  display: block;
+  margin: 0.5em auto;
+  padding: 0.5em;
+}
+
 .draft-js-hooks-katex.editing .TeX {
   position: absolute;
   top: calc(100% + 0.5em);
@@ -33,14 +43,4 @@
 
 .draft-js-hooks-katex.TEXBLOCK.editing .TeX {
   padding: 0 1em;
-}
-
-.draft-js-hooks-katex.INLINETEX .TeXInput {
-  text-align: center;
-}
-
-.draft-js-hooks-katex.TEXBLOCK .TeXInput {
-  display: block;
-  margin: 0.5em auto;
-  padding: 0.5em;
 }
