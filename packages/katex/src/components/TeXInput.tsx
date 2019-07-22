@@ -1,16 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-type TeXState = import('./InlineTeX').TeXState
+type TeXState = import('./types').TeXState
+
 type Position = {
   start: number
   end: number
 }
 
 type TeXInputProps = {
-  save: (after?: number) => void
   state: TeXState
   setState: (state: Partial<TeXState>) => void
   getCaretPos: () => number
+  finishEditing: (after?: boolean) => void
 }
 
 const endDelimiter: { [startDelimiter: string]: string } = {
@@ -69,17 +70,17 @@ function indent(
 }
 
 function TeXInput({
-  save,
   state,
   setState,
-  getCaretPos
+  getCaretPos,
+  finishEditing
 }: TeXInputProps): React.ReactElement | null {
   const teXInput = useRef<HTMLTextAreaElement>(null)
 
-  const [pos, setPos] = useState(
+  const [caretPos, setCaretPos] = useState(
     (): Position => {
-      const _pos = getCaretPos()
-      return { start: _pos, end: _pos }
+      const pos = getCaretPos()
+      return { start: pos, end: pos }
     }
   )
 
@@ -89,13 +90,13 @@ function TeXInput({
 
   const onSelect = useCallback((): void => {
     const { selectionStart: start, selectionEnd: end } = teXInput.current!
-    setPos({ start, end })
+    setCaretPos({ start, end })
   }, [])
 
   const insertGroupDelimiter = useCallback(
     (startDelimiter: string): void => {
       let value = state.tex
-      let { start, end } = pos
+      let { start, end } = caretPos
 
       value = `${value.slice(0, start)}${startDelimiter}${
         start !== end ? value.slice(start, end) : ''
@@ -110,18 +111,18 @@ function TeXInput({
       end = start
 
       setState({ tex: value })
-      setTimeout((): void => setPos({ start, end }), 0)
+      setTimeout((): void => setCaretPos({ start, end }), 0)
     },
-    [pos, setState, state.tex]
+    [caretPos, setState, state.tex]
   )
 
-  const onBlur = useCallback((): void => save(), [save])
+  const onBlur = useCallback((): void => finishEditing(), [finishEditing])
 
   const handleKey = useCallback(
     (event: React.KeyboardEvent<HTMLTextAreaElement>): void => {
       const key = event.key
 
-      const { start, end } = pos
+      const { start, end } = caretPos
       const { tex, type } = state
 
       const isCollapsed = start === end
@@ -136,7 +137,7 @@ function TeXInput({
 
       if (key === 'Escape') {
         event.preventDefault()
-        save(1)
+        finishEditing(true)
         return
       }
 
@@ -144,7 +145,7 @@ function TeXInput({
         const atBegin = isCollapsed && end === 0
         if (atBegin) {
           event.preventDefault()
-          save(0)
+          finishEditing(false)
         }
         return
       }
@@ -153,7 +154,7 @@ function TeXInput({
         const atEnd = isCollapsed && start === tex.length
         if (atEnd) {
           event.preventDefault()
-          save(1)
+          finishEditing(true)
         }
         return
       }
@@ -169,7 +170,7 @@ function TeXInput({
 
         if (isInline || lines.length <= 1) {
           event.preventDefault()
-          save(event.shiftKey ? 0 : 1)
+          finishEditing(event.shiftKey ? false : true)
           return
         }
 
@@ -179,10 +180,10 @@ function TeXInput({
         )
         event.preventDefault()
         setState({ tex: text })
-        setTimeout((): void => setPos({ start: newStart, end: newEnd }), 0)
+        setTimeout((): void => setCaretPos({ start: newStart, end: newEnd }), 0)
       }
     },
-    [save, insertGroupDelimiter, pos, setState, state]
+    [finishEditing, insertGroupDelimiter, caretPos, setState, state]
   )
 
   useEffect((): void => {
@@ -190,13 +191,13 @@ function TeXInput({
   }, [])
 
   useEffect((): void => {
-    const { start, end } = pos
+    const { start, end } = caretPos
     teXInput.current!.setSelectionRange(start, end)
-  }, [pos])
+  }, [caretPos])
 
   const teXArray = state.tex.split('\n')
   const rows = teXArray.length
-  const cols = Math.max(1, ...teXArray.map((row): number => row.length)) + 1
+  const cols = Math.max(1, ...teXArray.map((row): number => row.length)) + 2
 
   return (
     <textarea

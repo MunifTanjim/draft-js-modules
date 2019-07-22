@@ -47,25 +47,25 @@ export const keyBindingFn: KeyBindingFn = (
 
     const atEndofBlock = block.getLength() === startOffset && dir === 'r'
     if (atEndofBlock) {
-      const nextBlock = contentState.getBlockAfter(blockKey)
+      const blockAfter = contentState.getBlockAfter(blockKey)
       if (
-        nextBlock &&
-        nextBlock.getType() === 'atomic' &&
-        nextBlock.getData().get('type') === 'TEXBLOCK'
+        blockAfter &&
+        blockAfter.getType() === 'atomic' &&
+        blockAfter.getData().get('type') === 'TEXBLOCK'
       ) {
-        return `update-texblock-${dir}-${nextBlock.getKey()}`
+        return `update-texblock-${dir}-${blockAfter.getKey()}`
       }
     }
 
     const atStartOfBlock = startOffset === 0 && dir === 'l'
     if (atStartOfBlock) {
-      const prevBlock = contentState.getBlockBefore(blockKey)
+      const blockBefore = contentState.getBlockBefore(blockKey)
       if (
-        prevBlock &&
-        prevBlock.getType() === 'atomic' &&
-        prevBlock.getData().get('type') === 'TEXBLOCK'
+        blockBefore &&
+        blockBefore.getType() === 'atomic' &&
+        blockBefore.getData().get('type') === 'TEXBLOCK'
       ) {
-        return `update-texblock-${dir}-${prevBlock.getKey()}`
+        return `update-texblock-${dir}-${blockBefore.getKey()}`
       }
     }
 

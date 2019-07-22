@@ -5,12 +5,8 @@ type ContentBlock = import('draft-js').ContentBlock
 export function getNewBlockSelection(
   blockBefore: ContentBlock,
   blockAfter: ContentBlock,
-  after: number
-): SelectionState | void {
-  if (!blockAfter && !blockBefore) {
-    return
-  }
-
+  after: boolean
+): SelectionState {
   let nextBlock
   let offset
 

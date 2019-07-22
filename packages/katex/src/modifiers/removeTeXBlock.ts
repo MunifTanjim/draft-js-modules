@@ -6,7 +6,7 @@ type ContentBlock = import('draft-js').ContentBlock
 export function removeTeXBlock(
   contentState: ContentState,
   block: ContentBlock,
-  after: number = 1
+  after: boolean = true
 ): ContentState {
   const blockMap = contentState.getBlockMap()
   const blockKey = block.getKey()
@@ -16,7 +16,7 @@ export function removeTeXBlock(
   if (!blockAfter && !blockBefore) {
     if (
       block.getType() === 'atomic' &&
-      block.getData().get('atomic') === 'TEXBLOCK'
+      block.getData().get('type') === 'TEXBLOCK'
     ) {
       return ContentState.createFromText('')
     }

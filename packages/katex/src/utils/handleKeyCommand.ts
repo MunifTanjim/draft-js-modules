@@ -1,6 +1,7 @@
 import { EditorState, Modifier } from 'draft-js'
 import { insertInlineTeX, insertTeXBlock } from './insertTeX'
 
+type Direction = import('../types').Direction
 type HandleKeyCommand = import('../types').KaTeXHook['handleKeyCommand']
 type Internals = import('../types').Internals
 type SelectionState = import('draft-js').SelectionState
@@ -23,7 +24,7 @@ export const getHandleKeyCommand = (internals: Internals): HandleKeyCommand => (
   }
 
   if (command.slice(0, 16) === 'update-inlinetex') {
-    const dir = command.slice(17, 18) as 'l' | 'r'
+    const dir = command.slice(17, 18) as Direction
     const entityKey = command.slice(19)
 
     internals.setEditingState({ dir, key: entityKey })
@@ -37,7 +38,7 @@ export const getHandleKeyCommand = (internals: Internals): HandleKeyCommand => (
   }
 
   if (command.slice(0, 15) === 'update-texblock') {
-    const dir = command.slice(16, 17) as 'l' | 'r'
+    const dir = command.slice(16, 17) as Direction
     const blockKey = command.slice(18)
 
     internals.setEditingState({ dir, key: blockKey })

@@ -1,32 +1,30 @@
-import { ContentState, Modifier, SelectionState } from 'draft-js'
+import { Modifier, SelectionState } from 'draft-js'
 import { getNewBlockSelection } from './getNewBlockSelection'
 import { removeEntity } from './removeEntity'
 import { removeTeXBlock } from './removeTeXBlock'
 
 type ContentBlock = import('draft-js').ContentBlock
+type ContentState = import('draft-js').ContentState
+type TeXType = import('../types').TeXType
 
 type CommonParams = {
   contentState: ContentState
   tex: string
-  type: 'TEXBLOCK' | 'INLINETEX'
-  after?: number
+  type: TeXType
+  after?: boolean
 }
 
-type SaveTexParams = CommonParams & {
-  block?: ContentBlock
-  blockKey?: string
-  entityKey?: string
-  startPos?: number
+type SaveInlineTeXParams = CommonParams & {
+  blockKey: string
+  entityKey: string
+  startPos: number
 }
 
-type SaveInlineTeXParams = Pick<
-  SaveTexParams,
-  keyof CommonParams | 'entityKey' | 'blockKey' | 'startPos'
->
+type SaveTeXBlockParams = CommonParams & {
+  block: ContentBlock
+}
 
-type SaveTeXBlockParams = Pick<SaveTexParams, keyof CommonParams | 'block'>
-
-function saveInlineTeX({
+export function saveInlineTeX({
   after,
   contentState,
   tex,
@@ -35,12 +33,12 @@ function saveInlineTeX({
   blockKey,
   startPos
 }: SaveInlineTeXParams): [ContentState, SelectionState, boolean] {
-  const needRemove = tex.length === 0
+  const needsRemoval = tex.length === 0
 
   let newContentState: ContentState
   let newSelection: SelectionState
 
-  if (needRemove) {
+  if (needsRemoval) {
     newContentState = removeEntity(
       contentState,
       blockKey!,
@@ -64,22 +62,22 @@ function saveInlineTeX({
     }
   }
 
-  return [newContentState, newSelection!, needRemove]
+  return [newContentState, newSelection!, needsRemoval]
 }
 
-function saveTeXBlock({
+export function saveTeXBlock({
   after,
   contentState,
   tex,
   block
 }: SaveTeXBlockParams): [ContentState, SelectionState, boolean] {
-  const needRemove = tex.length === 0
+  const needsRemoval = tex.length === 0
   const blockKey = block!.getKey()
 
   let newContentState: ContentState
   let newSelection: SelectionState
 
-  if (needRemove) {
+  if (needsRemoval) {
     newContentState = removeTeXBlock(contentState, block!, after)
     newSelection = newContentState.getSelectionAfter()
   } else {
@@ -89,7 +87,7 @@ function saveTeXBlock({
       { tex } as any
     )
 
-    if (after !== undefined) {
+    if (after) {
       newSelection = getNewBlockSelection(
         contentState.getBlockBefore(blockKey),
         contentState.getBlockAfter(blockKey),
@@ -98,17 +96,5 @@ function saveTeXBlock({
     }
   }
 
-  return [newContentState, newSelection!, needRemove]
-}
-
-export const saveTeX = ({
-  block,
-  entityKey,
-  blockKey,
-  startPos,
-  ...common
-}: SaveTexParams): [ContentState, SelectionState, boolean] => {
-  return entityKey
-    ? saveInlineTeX({ ...common, entityKey, blockKey, startPos })
-    : saveTeXBlock({ ...common, block })
+  return [newContentState, newSelection!, needsRemoval]
 }

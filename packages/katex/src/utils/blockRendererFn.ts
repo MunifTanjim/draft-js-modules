@@ -14,10 +14,7 @@ export const getBlockRendererFn = (internals: Internals): BlockRendererFn => (
     return {
       component: TeXBlock,
       editable: false,
-      props: {
-        store,
-        internals
-      }
+      props: { store, internals }
     }
   }
 }

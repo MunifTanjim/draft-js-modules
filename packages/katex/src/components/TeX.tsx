@@ -1,7 +1,7 @@
 import * as katex from 'katex'
 import React, { useMemo } from 'react'
 
-type TeXState = import('./InlineTeX').TeXState
+type TeXState = import('./types').TeXState
 
 type TeXProps = {
   [prop: string]: any
