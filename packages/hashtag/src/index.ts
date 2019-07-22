@@ -1,13 +1,14 @@
 import { getHashtagDecorator } from './decorator'
 
+export * from './types'
+
 type HashtagHook = import('./types').HashtagHook
 type HashtagHookConfig = import('./types').HashtagHookConfig
-type DraftDecorator = import('draft-js').DraftDecorator
 
-export function getHashtagHook(config: HashtagHookConfig): HashtagHook {
+export function getHashtagHook(config: HashtagHookConfig = {}): HashtagHook {
   const hashtagDecorator = getHashtagDecorator(config)
 
-  const decorators: DraftDecorator[] = [hashtagDecorator]
+  const decorators = [hashtagDecorator]
 
   return {
     decorators
