@@ -1,15 +1,23 @@
 import { Editor } from '@draft-js-hooks/editor'
 import { getHashtagHook } from '@draft-js-hooks/hashtag'
+import { getKaTeXHook } from '@draft-js-hooks/katex'
+import '@draft-js-hooks/katex/dist/styles.css'
 import { getStatsHook } from '@draft-js-hooks/stats'
 import { EditorState } from 'draft-js'
 import 'draft-js/dist/Draft.css'
+import 'katex/dist/katex.min.css'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Box } from 'rebass'
 import styled from 'styled-components'
 
+const Container = styled(Box)`
+  margin: 0 auto;
+  max-width: 520px;
+`
+
 const EditorWrapper = styled(Box)`
   border: 1px solid #ddd;
-  max-width: 520px;
+  width: 100%;
   padding: 1em;
   min-height: 100px;
 `
@@ -23,12 +31,13 @@ const Hashtag = styled.span`
   cursor: pointer;
 `
 
-const StatsHook = getStatsHook()
 const HashtagHook = getHashtagHook({
   Component: ({ children }) => <Hashtag children={children} />
 })
+const KaTeXHook = getKaTeXHook()
+const StatsHook = getStatsHook()
 
-const hooks = [HashtagHook, StatsHook]
+const hooks = [HashtagHook, KaTeXHook, StatsHook]
 
 function HookedEditor() {
   const store = useRef(null)
@@ -48,19 +57,22 @@ function HookedEditor() {
   }, [])
 
   return (
-    <EditorWrapper onClick={onClick} mx={'auto'}>
-      {mounted ? (
-        <Editor
-          store={store}
-          editorState={editorState}
-          onChange={onChange}
-          placeholder="Have something to write?"
-          hooks={hooks}
-        />
-      ) : null}
+    <Container>
+      <Seperator />
+      <EditorWrapper onClick={onClick} mx={'auto'}>
+        {mounted ? (
+          <Editor
+            editorState={editorState}
+            onChange={onChange}
+            placeholder="Have something to write?"
+            hooks={hooks}
+            store={store}
+          />
+        ) : null}
+      </EditorWrapper>
       <Seperator />
       <StatsHook.Stats />
-    </EditorWrapper>
+    </Container>
   )
 }
 
