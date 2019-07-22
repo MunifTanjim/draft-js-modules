@@ -7,18 +7,18 @@ export function getNewBlockSelection(
   blockAfter: ContentBlock,
   after: boolean
 ): SelectionState {
-  let nextBlock
+  let targetBlock
   let offset
 
   if (after) {
-    nextBlock = blockAfter || blockBefore
-    offset = blockAfter ? 0 : nextBlock.getLength()
+    targetBlock = blockAfter || blockBefore
+    offset = blockAfter ? 0 : targetBlock.getLength()
   } else {
-    nextBlock = blockBefore || blockAfter
-    offset = blockBefore ? nextBlock.getLength() : 0
+    targetBlock = blockBefore || blockAfter
+    offset = blockBefore ? targetBlock.getLength() : 0
   }
 
-  return SelectionState.createEmpty(nextBlock.getKey()).merge({
+  return SelectionState.createEmpty(targetBlock.getKey()).merge({
     anchorOffset: offset,
     focusOffset: offset,
     hasFocus: true

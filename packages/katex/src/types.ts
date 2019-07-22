@@ -9,7 +9,7 @@ export type EditingState = {
 
 export type Internals = {
   getEditingState: () => EditingState
-  setEditingState: (newEditingState: EditingState) => void
+  setEditingState: (newEditingState: Partial<EditingState>) => void
 }
 
 export type KaTeXHook = Pick<

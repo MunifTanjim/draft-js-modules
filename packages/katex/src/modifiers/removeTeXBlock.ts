@@ -6,7 +6,7 @@ type ContentBlock = import('draft-js').ContentBlock
 export function removeTeXBlock(
   contentState: ContentState,
   block: ContentBlock,
-  after: boolean = true
+  after: boolean
 ): ContentState {
   const blockMap = contentState.getBlockMap()
   const blockKey = block.getKey()

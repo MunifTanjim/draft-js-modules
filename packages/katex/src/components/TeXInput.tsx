@@ -11,7 +11,7 @@ type TeXInputProps = {
   state: TeXState
   setState: (state: Partial<TeXState>) => void
   getCaretPos: () => number
-  finishEditing: (after?: boolean) => void
+  finishEditing: (after: boolean) => void
 }
 
 const endDelimiter: { [startDelimiter: string]: string } = {
@@ -116,7 +116,7 @@ function TeXInput({
     [caretPos, setState, state.tex]
   )
 
-  const onBlur = useCallback((): void => finishEditing(), [finishEditing])
+  const onBlur = useCallback((): void => finishEditing(true), [finishEditing])
 
   const handleKey = useCallback(
     (event: React.KeyboardEvent<HTMLTextAreaElement>): void => {
@@ -142,8 +142,8 @@ function TeXInput({
       }
 
       if (key === 'ArrowLeft') {
-        const atBegin = isCollapsed && end === 0
-        if (atBegin) {
+        const atStart = isCollapsed && end === 0
+        if (atStart) {
           event.preventDefault()
           finishEditing(false)
         }

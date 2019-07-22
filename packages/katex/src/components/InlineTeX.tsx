@@ -40,7 +40,7 @@ function InlineTeX({
   store,
   internals
 }: InlineTeXProps): React.ReactElement {
-  const { state, setState, startEditing, getCaretPos, submitTeX } = useTeXUtils(
+  const { state, setState, getCaretPos, submitTeX, onClickEdit } = useTeXUtils(
     getInitialState.bind(null, contentState, entityKey),
     store,
     internals,
@@ -48,7 +48,7 @@ function InlineTeX({
   )
 
   const finishEditing = useCallback(
-    (after?: boolean): void => {
+    (after: boolean): void => {
       setState({ editing: false })
 
       const { tex, type } = state
@@ -85,11 +85,7 @@ function InlineTeX({
           finishEditing={finishEditing}
         />
       )}
-      <TeX
-        state={state}
-        onClick={(): void => startEditing()}
-        data-offset-key={offsetKey}
-      />
+      <TeX state={state} onClick={onClickEdit} data-offset-key={offsetKey} />
     </span>
   )
 }

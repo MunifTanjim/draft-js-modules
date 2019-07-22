@@ -2,6 +2,7 @@ import * as katex from 'katex'
 import React, { useMemo } from 'react'
 
 type TeXState = import('./types').TeXState
+type TeXType = import('../types').TeXType
 
 type TeXProps = {
   [prop: string]: any
@@ -10,7 +11,7 @@ type TeXProps = {
   onError?: (err: any, html: string) => void
 }
 
-const componentMap = {
+const componentMap: { [key in TeXType]: string } = {
   INLINETEX: 'span',
   TEXBLOCK: 'div'
 }

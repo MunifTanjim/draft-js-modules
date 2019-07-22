@@ -7,22 +7,24 @@ type SelectionState = import('draft-js').SelectionState
 type Store = import('@draft-js-hooks/editor').Store
 type TeXState = import('../components/types').TeXState
 
-export function useTeXUtils(
-  getInitialState: (...params: any) => TeXState,
-  store: Store,
-  internals: Internals,
-  key: string
-): {
+type TeXUtils = {
   state: TeXState
   setState: (newState: Partial<TeXState>) => void
-  startEditing: (key?: string) => void
   getCaretPos: () => number
   submitTeX: (
     newContentState: ContentState,
     newSelection: SelectionState,
     needsRemoval: boolean
   ) => void
-} {
+  onClickEdit: () => void
+}
+
+export function useTeXUtils(
+  getInitialState: (...params: any) => TeXState,
+  store: Store,
+  internals: Internals,
+  key: string
+): TeXUtils {
   const [state, _setState] = useState(getInitialState)
 
   const setState = useCallback(
@@ -30,20 +32,6 @@ export function useTeXUtils(
       _setState((state): TeXState => ({ ...state, ...newState }))
     },
     [_setState]
-  )
-
-  const startEditing = useCallback(
-    (key?: string): void => {
-      const readOnly = store.getReadOnly()
-
-      if (readOnly || state.editing) return
-
-      setState({ editing: true })
-      if (key) {
-        internals.setEditingState({ key: '' })
-      }
-    },
-    [internals, setState, state.editing, store]
   )
 
   const getCaretPos = useCallback((): number => {
@@ -82,6 +70,27 @@ export function useTeXUtils(
     [store]
   )
 
+  const startEditing = useCallback(
+    (key?: string): void => {
+      const readOnly = store.getReadOnly()
+
+      if (readOnly || state.editing) return
+
+      setState({ editing: true })
+
+      if (key) {
+        internals.setEditingState({ key: '' })
+      } else {
+        internals.setEditingState({ dir: 'l' })
+      }
+    },
+    [internals, setState, state.editing, store]
+  )
+
+  const onClickEdit = useCallback((): void => {
+    startEditing()
+  }, [startEditing])
+
   useEffect((): void => {
     if (state.editing) {
       store.setReadOnly(true)
@@ -96,8 +105,8 @@ export function useTeXUtils(
   return {
     state,
     setState,
-    startEditing,
     getCaretPos,
-    submitTeX
+    submitTeX,
+    onClickEdit
   }
 }

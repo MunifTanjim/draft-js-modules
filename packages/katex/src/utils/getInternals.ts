@@ -9,7 +9,7 @@ export function getInternals(config: KaTeXHookConfig): Internals {
     return editingState
   }
 
-  const setEditingState = (newEditingState: EditingState): void => {
+  const setEditingState = (newEditingState: Partial<EditingState>): void => {
     Object.assign(editingState, newEditingState)
   }
 

@@ -36,7 +36,7 @@ function TeXBlock({
 }: TeXBlockProps): React.ReactElement {
   const blockKey = block.getKey()
 
-  const { state, setState, startEditing, getCaretPos, submitTeX } = useTeXUtils(
+  const { state, setState, getCaretPos, submitTeX, onClickEdit } = useTeXUtils(
     getInitialState.bind(null, block),
     store,
     internals,
@@ -44,7 +44,7 @@ function TeXBlock({
   )
 
   const finishEditing = useCallback(
-    (after?: boolean): void => {
+    (after: boolean): void => {
       setState({ editing: false })
 
       const { tex, type } = state
@@ -76,7 +76,7 @@ function TeXBlock({
           finishEditing={finishEditing}
         />
       )}
-      <TeX state={state} onClick={(): void => startEditing()} />
+      <TeX state={state} onClick={onClickEdit} />
     </div>
   )
 }
