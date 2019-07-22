@@ -2,11 +2,13 @@ import React from 'react'
 import DefaultStatsComponent from './components/DefaultStatsComponent'
 import StatsViewer from './components/StatsViewer'
 
+export * from './types'
+
 type StatsHook = import('./types').StatsHook
 type StatsHookConfig = import('./types').StatsHookConfig
 type Store = import('@draft-js-hooks/editor').Store
 
-const defaultConfig: NonNullable<StatsHookConfig> = {
+const defaultConfig: StatsHookConfig = {
   Component: DefaultStatsComponent
 }
 
@@ -26,5 +28,3 @@ export function getStatsHook(
     }
   }
 }
-
-export default StatsHook
