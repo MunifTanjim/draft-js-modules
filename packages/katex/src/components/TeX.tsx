@@ -47,7 +47,7 @@ function TeX({
 
   return (
     <Component
-      className={type}
+      className="TeX"
       contentEditable={false}
       onClick={onClick}
       dangerouslySetInnerHTML={{ __html }}

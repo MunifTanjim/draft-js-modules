@@ -63,7 +63,11 @@ function TeXBlock({
   )
 
   return (
-    <div className="draft-js-hooks-katex">
+    <div
+      className={`draft-js-hooks-katex TEXBLOCK${
+        state.editing ? ' editing' : ''
+      }`}
+    >
       {state.editing && (
         <TeXInput
           state={state}

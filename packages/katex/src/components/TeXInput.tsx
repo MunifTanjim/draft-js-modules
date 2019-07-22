@@ -201,6 +201,7 @@ function TeXInput({
 
   return (
     <textarea
+      className="TeXInput"
       ref={teXInput}
       rows={rows}
       cols={cols}

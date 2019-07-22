@@ -1,0 +1,46 @@
+.draft-js-hooks-katex.editing {
+  position: relative;
+}
+
+.draft-js-hooks-katex.INLINETEX {
+  display: inline-block;
+}
+
+.draft-js-hooks-katex .TeXInput {
+  border: 1px dashed #843131;
+  outline: none;
+  font-size: 1em;
+  box-shadow: 2px 2px 2px lightgray;
+}
+
+.draft-js-hooks-katex .TeX {
+  cursor: pointer;
+}
+
+.draft-js-hooks-katex.editing .TeX {
+  position: absolute;
+  top: calc(100% + 0.5em);
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+
+  padding: 0.5em;
+  z-index: 99;
+  background: ivory;
+  border: 1px solid #843131;
+  box-shadow: 2px 2px 2px lightgray;
+}
+
+.draft-js-hooks-katex.TEXBLOCK.editing .TeX {
+  padding: 0 1em;
+}
+
+.draft-js-hooks-katex.INLINETEX .TeXInput {
+  text-align: center;
+}
+
+.draft-js-hooks-katex.TEXBLOCK .TeXInput {
+  display: block;
+  margin: 0.5em auto;
+  padding: 0.5em;
+}

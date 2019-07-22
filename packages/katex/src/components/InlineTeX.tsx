@@ -72,7 +72,11 @@ function InlineTeX({
   )
 
   return (
-    <span className="draft-js-hooks-katex">
+    <span
+      className={`draft-js-hooks-katex INLINETEX${
+        state.editing ? ' editing' : ''
+      }`}
+    >
       {state.editing && (
         <TeXInput
           state={state}
