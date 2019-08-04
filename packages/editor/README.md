@@ -1,19 +1,19 @@
-# @draft-js-hooks/editor
+# @draft-js-modules/editor
 
 ## Installation
 
 ```sh
 # using npm:
-npm install --save @draft-js-hooks/editor
+npm install --save @draft-js-modules/editor
 
 # using yarn:
-yarn add @draft-js-hooks/editor
+yarn add @draft-js-modules/editor
 ```
 
 ## Usage
 
 ```js
-import { Editor } from '@draft-js-hooks/editor'
+import { Editor } from '@draft-js-modules/editor'
 import { EditorState } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 import React, { useCallback, useRef, useState } from 'react'
