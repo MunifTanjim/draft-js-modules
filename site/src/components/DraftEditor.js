@@ -1,8 +1,8 @@
 import { Editor } from '@draft-js-modules/editor'
-import { getHashtagHook } from '@draft-js-modules/hashtag'
-import { getKaTeXHook } from '@draft-js-modules/katex'
+import { getHashtagModule } from '@draft-js-modules/hashtag'
+import { getKaTeXModule } from '@draft-js-modules/katex'
 import '@draft-js-modules/katex/dist/styles.css'
-import { getStatsHook } from '@draft-js-modules/stats'
+import { getStatsModule } from '@draft-js-modules/stats'
 import { EditorState } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 import 'katex/dist/katex.min.css'
@@ -31,15 +31,15 @@ const Hashtag = styled.span`
   cursor: pointer;
 `
 
-const HashtagHook = getHashtagHook({
+const HashtagModule = getHashtagModule({
   Component: ({ children }) => <Hashtag children={children} />
 })
-const KaTeXHook = getKaTeXHook()
-const StatsHook = getStatsHook()
+const KaTeXModule = getKaTeXModule()
+const StatsModule = getStatsModule()
 
-const hooks = [HashtagHook, KaTeXHook, StatsHook]
+const modules = [HashtagModule, KaTeXModule, StatsModule]
 
-function HookedEditor() {
+function DraftEditor() {
   const store = useRef(null)
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
   const [mounted, setMounted] = useState(false)
@@ -65,15 +65,15 @@ function HookedEditor() {
             editorState={editorState}
             onChange={onChange}
             placeholder="Have something to write?"
-            hooks={hooks}
+            modules={modules}
             store={store}
           />
         ) : null}
       </EditorWrapper>
       <Seperator />
-      <StatsHook.Stats />
+      <StatsModule.Stats />
     </Container>
   )
 }
 
-export default HookedEditor
+export default DraftEditor

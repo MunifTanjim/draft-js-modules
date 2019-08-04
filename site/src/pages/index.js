@@ -1,12 +1,12 @@
 import React from 'react'
-import HookedEditor from '../components/HookedEditor.js'
+import DraftEditor from '../components/DraftEditor.js'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const HomePage = () => (
   <Layout>
     <SEO title="Home" />
-    <HookedEditor />
+    <DraftEditor />
   </Layout>
 )
 
