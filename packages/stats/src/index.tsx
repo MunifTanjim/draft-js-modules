@@ -4,17 +4,17 @@ import StatsViewer from './components/StatsViewer'
 
 export * from './types'
 
-type StatsHook = import('./types').StatsHook
-type StatsHookConfig = import('./types').StatsHookConfig
+type StatsModule = import('./types').StatsModule
+type StatsModuleConfig = import('./types').StatsModuleConfig
 type Store = import('@draft-js-modules/editor').Store
 
-const defaultConfig: StatsHookConfig = {
+const defaultConfig: StatsModuleConfig = {
   Component: DefaultStatsComponent
 }
 
-export function getStatsHook(
-  config: StatsHookConfig = defaultConfig
-): StatsHook {
+export function getStatsModule(
+  config: StatsModuleConfig = defaultConfig
+): StatsModule {
   const store: Partial<Store> = {}
 
   function init(editorStore: Store): void {

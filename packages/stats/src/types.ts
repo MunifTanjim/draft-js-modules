@@ -1,4 +1,4 @@
-import { Hook, Store } from '@draft-js-modules/editor'
+import { Module, Store } from '@draft-js-modules/editor'
 import { ReactElement } from 'react'
 
 export type Stats = {
@@ -7,15 +7,15 @@ export type Stats = {
   line: number
 }
 
-export type StatsHook = Pick<Required<Hook>, 'init'> & {
+export type StatsModule = Pick<Required<Module>, 'init'> & {
   Stats: () => ReactElement
 }
-export type StatsHookConfig = { Component: StatsComponent }
+export type StatsModuleConfig = { Component: StatsComponent }
 
 export type StatsComponent = (props: StatsComponentProps) => ReactElement
 export type StatsComponentProps = { stats: Stats }
 
 export type StatsViewerProps = {
-  config: NonNullable<StatsHookConfig>
+  config: NonNullable<StatsModuleConfig>
   store: Partial<Store>
 }

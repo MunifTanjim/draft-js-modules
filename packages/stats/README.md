@@ -13,9 +13,9 @@ yarn add @draft-js-modules/stats
 ## Usage
 
 ```js
-import { getStatsHook } from '@draft-js-modules/stats'
+import { getStatsModule } from '@draft-js-modules/stats'
 
-const StatsHook = getStatsHook()
+const StatsModule = getStatsModule()
 
-const hooks = [StatsHook]
+const modules = [StatsModule]
 ```

@@ -1,7 +1,7 @@
 {
   "name": "@draft-js-modules/stats",
   "version": "0.0.0",
-  "description": "Draft.js Stats Hook",
+  "description": "Draft.js Stats Module",
   "keywords": [
     "draftjs",
     "editor",
