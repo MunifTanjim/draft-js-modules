@@ -1,1 +1,1 @@
-# @draft-js-hooks
+# @draft-js-modules

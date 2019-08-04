@@ -1,6 +1,6 @@
 {
   "private": true,
-  "homepage": "https://github.com/MunifTanjim/draft-js-hooks#readme",
+  "homepage": "https://github.com/MunifTanjim/draft-js-modules#readme",
   "license": "MIT",
   "scripts": {
     "prebootstrap": "yarn",
@@ -9,11 +9,11 @@
     "commit": "npx commit",
     "publish": "lerna publish from-package",
     "packages:clean": "rimraf packages/*/dist/*",
-    "packages:build": "lerna run build --scope=@draft-js-hooks/*",
-    "packages:watch": "lerna run --parallel watch --scope=@draft-js-hooks/*",
+    "packages:build": "lerna run build --scope=@draft-js-modules/*",
+    "packages:watch": "lerna run --parallel watch --scope=@draft-js-modules/*",
     "site:build": "yarn workspace site build",
     "site:start": "yarn workspace site start",
-    "test": "lerna run test --scope=@draft-js-hooks/*"
+    "test": "lerna run test --scope=@draft-js-modules/*"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",

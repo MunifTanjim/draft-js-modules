@@ -1,6 +1,6 @@
 {
   "changelog": {
-    "repo": "MunifTanjim/draft-js-hooks",
+    "repo": "MunifTanjim/draft-js-modules",
     "labels": {
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
@@ -15,7 +15,7 @@
   "command": {
     "create": {
       "access": "public",
-      "keywords": ["draftjs", "editor", "react", "richtext", "hooks"],
+      "keywords": ["draftjs", "editor", "react", "richtext", "modules"],
       "license": "MIT"
     },
     "run": {
@@ -24,7 +24,7 @@
     "version": {
       "allowBranch": "master",
       "conventionalCommits": true,
-      "message": "chore: publish %s",
+      "message": "chore: publish packages",
       "push": false
     }
   },
@@ -33,5 +33,5 @@
   "npmClientArgs": ["--no-lockfile"],
   "packages": ["packages/*", "site"],
   "useWorkspaces": true,
-  "version": "0.0.2"
+  "version": "independent"
 }
