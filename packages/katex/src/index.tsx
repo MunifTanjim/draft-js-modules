@@ -4,11 +4,11 @@ import { getInternals } from './utils/getInternals'
 
 export * from './types'
 
-type KaTeXHook = import('./types').KaTeXHook
-type KaTeXHookConfig = import('./types').KaTeXHookConfig
+type KaTeXModule = import('./types').KaTeXModule
+type KaTeXModuleConfig = import('./types').KaTeXModuleConfig
 type Store = import('@draft-js-modules/editor').Store
 
-export function getKaTeXHook(config: KaTeXHookConfig = {}): KaTeXHook {
+export function getKaTeXModule(config: KaTeXModuleConfig = {}): KaTeXModule {
   const internals = getInternals(config)
 
   const store: Partial<Store> = {}

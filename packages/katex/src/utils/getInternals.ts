@@ -1,8 +1,8 @@
 type EditingState = import('../types').EditingState
 type Internals = import('../types').Internals
-type KaTeXHookConfig = import('../types').KaTeXHookConfig
+type KaTeXModuleConfig = import('../types').KaTeXModuleConfig
 
-export function getInternals(config: KaTeXHookConfig): Internals {
+export function getInternals(config: KaTeXModuleConfig): Internals {
   const editingState: EditingState = { key: '' }
 
   const getEditingState = (): EditingState => {

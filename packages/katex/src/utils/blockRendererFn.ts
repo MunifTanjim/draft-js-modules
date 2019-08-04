@@ -1,6 +1,6 @@
 import TeXBlock from '../components/TeXBlock'
 
-type BlockRendererFn = import('../types').KaTeXHook['blockRendererFn']
+type BlockRendererFn = import('../types').KaTeXModule['blockRendererFn']
 type Internals = import('../types').Internals
 
 export const getBlockRendererFn = (internals: Internals): BlockRendererFn => (

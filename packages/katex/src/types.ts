@@ -1,4 +1,4 @@
-import { Hook } from '@draft-js-modules/editor'
+import { Module } from '@draft-js-modules/editor'
 
 export type Direction = 'l' | 'r'
 
@@ -12,8 +12,8 @@ export type Internals = {
   setEditingState: (newEditingState: Partial<EditingState>) => void
 }
 
-export type KaTeXHook = Pick<
-  Required<Hook>,
+export type KaTeXModule = Pick<
+  Required<Module>,
   | 'init'
   | 'decorators'
   | 'blockRendererFn'
@@ -21,6 +21,6 @@ export type KaTeXHook = Pick<
   | 'keyBindingFn'
 >
 
-export type KaTeXHookConfig = {}
+export type KaTeXModuleConfig = {}
 
 export type TeXType = 'INLINETEX' | 'TEXBLOCK'

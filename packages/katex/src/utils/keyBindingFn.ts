@@ -1,6 +1,6 @@
 import { KeyBindingUtil } from 'draft-js'
 
-type KeyBindingFn = import('../types').KaTeXHook['keyBindingFn']
+type KeyBindingFn = import('../types').KaTeXModule['keyBindingFn']
 
 const KEY_M = 77
 

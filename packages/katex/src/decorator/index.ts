@@ -3,11 +3,11 @@ import InlineTeX from '../components/InlineTeX'
 
 type DraftDecorator = import('draft-js').DraftDecorator
 type Internals = import('../types').Internals
-type KaTeXHookConfig = import('../types').KaTeXHookConfig
+type KaTeXModuleConfig = import('../types').KaTeXModuleConfig
 type Store = import('@draft-js-modules/editor').Store
 
 export function getInlineTeXDecorator(
-  config: KaTeXHookConfig,
+  config: KaTeXModuleConfig,
   props: { store: Store; internals: Internals }
 ): DraftDecorator {
   return {

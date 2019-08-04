@@ -1,7 +1,7 @@
 {
   "name": "@draft-js-modules/katex",
   "version": "0.0.0",
-  "description": "Draft.js KaTeX Hook",
+  "description": "Draft.js KaTeX Module",
   "keywords": [
     "draftjs",
     "editor",

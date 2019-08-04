@@ -2,7 +2,7 @@ import { EditorState, Modifier } from 'draft-js'
 import { insertInlineTeX, insertTeXBlock } from './insertTeX'
 
 type Direction = import('../types').Direction
-type HandleKeyCommand = import('../types').KaTeXHook['handleKeyCommand']
+type HandleKeyCommand = import('../types').KaTeXModule['handleKeyCommand']
 type Internals = import('../types').Internals
 type SelectionState = import('draft-js').SelectionState
 

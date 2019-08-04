@@ -13,11 +13,11 @@ yarn add @draft-js-modules/katex katex
 ## Usage
 
 ```js
-import { getKaTeXHook } from '@draft-js-modules/katex'
+import { getKaTeXModule } from '@draft-js-modules/katex'
 import '@draft-js-modules/katex/dist/styles.css'
 import 'katex/dist/katex.min.css'
 
-const KaTeXHook = getKaTeXHook()
+const KaTeXModule = getKaTeXModule()
 
-const hooks = [KaTeXHook]
+const modules = [KaTeXModule]
 ```
