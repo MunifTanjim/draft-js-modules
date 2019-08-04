@@ -6,7 +6,7 @@ export * from './types'
 
 type StatsHook = import('./types').StatsHook
 type StatsHookConfig = import('./types').StatsHookConfig
-type Store = import('@draft-js-hooks/editor').Store
+type Store = import('@draft-js-modules/editor').Store
 
 const defaultConfig: StatsHookConfig = {
   Component: DefaultStatsComponent

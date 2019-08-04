@@ -1,4 +1,4 @@
-import { Hook, Store } from '@draft-js-hooks/editor'
+import { Hook, Store } from '@draft-js-modules/editor'
 import { ReactElement } from 'react'
 
 export type Stats = {

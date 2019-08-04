@@ -1,17 +1,17 @@
 {
-  "name": "@draft-js-hooks/stats",
-  "version": "0.0.2",
+  "name": "@draft-js-modules/stats",
+  "version": "0.0.0",
   "description": "Draft.js Stats Hook",
   "keywords": [
     "draftjs",
     "editor",
     "react",
     "richtext",
-    "hooks",
+    "modules",
     "stats"
   ],
-  "homepage": "https://github.com/MunifTanjim/draft-js-hooks/tree/master/packages/stats#readme",
-  "bugs": "https://github.com/MunifTanjim/draft-js-hooks/issues",
+  "homepage": "https://github.com/MunifTanjim/draft-js-modules/tree/master/packages/stats#readme",
+  "bugs": "https://github.com/MunifTanjim/draft-js-modules/issues",
   "license": "MIT",
   "author": "MunifTanjim (https://muniftanjim.com)",
   "files": [
@@ -21,7 +21,7 @@
   "module": "dist/index.js",
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/MunifTanjim/draft-js-hooks",
+  "repository": "https://github.com/MunifTanjim/draft-js-modules",
   "scripts": {
     "prebuild": "yarn clean",
     "build": "bili",
@@ -34,7 +34,7 @@
     "watch": "bili --format es --watch"
   },
   "devDependencies": {
-    "@draft-js-hooks/editor": "^0.1.0",
+    "@draft-js-modules/editor": "^0.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
