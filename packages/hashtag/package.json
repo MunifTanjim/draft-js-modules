@@ -1,7 +1,7 @@
 {
   "name": "@draft-js-modules/hashtag",
   "version": "0.0.0",
-  "description": "Draft.js Hashtag Hook",
+  "description": "Draft.js Hashtag Module",
   "keywords": [
     "draftjs",
     "editor",

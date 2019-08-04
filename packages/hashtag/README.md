@@ -13,9 +13,9 @@ yarn add @draft-js-modules/hashtag
 ## Usage
 
 ```js
-import { getHashtagHook } from '@draft-js-modules/hashtag'
+import { getHashtagModule } from '@draft-js-modules/hashtag'
 
-const HashtagHook = getHashtagHook({
+const HashtagModule = getHashtagModule({
   Component: ({ children }) => {
     return (
       <span style={{ color: 'rebeccapurple' }}>
@@ -25,5 +25,5 @@ const HashtagHook = getHashtagHook({
   }
 })
 
-const hooks = [HashtagHook]
+const modules = [HashtagModule]
 ```

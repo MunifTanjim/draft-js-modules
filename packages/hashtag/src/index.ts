@@ -2,10 +2,12 @@ import { getHashtagDecorator } from './decorator'
 
 export * from './types'
 
-type HashtagHook = import('./types').HashtagHook
-type HashtagHookConfig = import('./types').HashtagHookConfig
+type HashtagModule = import('./types').HashtagModule
+type HashtagModuleConfig = import('./types').HashtagModuleConfig
 
-export function getHashtagHook(config: HashtagHookConfig = {}): HashtagHook {
+export function getHashtagModule(
+  config: HashtagModuleConfig = {}
+): HashtagModule {
   const hashtagDecorator = getHashtagDecorator(config)
 
   const decorators = [hashtagDecorator]

@@ -1,10 +1,12 @@
 import { hashtagStrategy } from './strategy'
 import { HashtagComponent } from './component'
 
-type HashtagHookConfig = import('../types').HashtagHookConfig
+type HashtagModuleConfig = import('../types').HashtagModuleConfig
 type DraftDecorator = import('draft-js').DraftDecorator
 
-export function getHashtagDecorator(config: HashtagHookConfig): DraftDecorator {
+export function getHashtagDecorator(
+  config: HashtagModuleConfig
+): DraftDecorator {
   return {
     strategy: hashtagStrategy,
     component: config.Component || HashtagComponent,
