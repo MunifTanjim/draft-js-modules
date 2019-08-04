@@ -7,7 +7,7 @@ import TeXInput from './TeXInput'
 type ContentBlock = import('draft-js').ContentBlock
 type ContentState = import('draft-js').ContentState
 type Internals = import('../types').Internals
-type Store = import('@draft-js-hooks/editor').Store
+type Store = import('@draft-js-modules/editor').Store
 type TeXState = import('./types').TeXState
 
 type TeXBlockProps = {
@@ -64,7 +64,7 @@ function TeXBlock({
 
   return (
     <div
-      className={`draft-js-hooks-katex TEXBLOCK${
+      className={`draft-js-modules-katex TEXBLOCK${
         state.editing ? ' editing' : ''
       }`}
     >

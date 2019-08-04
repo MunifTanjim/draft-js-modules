@@ -4,7 +4,7 @@ import InlineTeX from '../components/InlineTeX'
 type DraftDecorator = import('draft-js').DraftDecorator
 type Internals = import('../types').Internals
 type KaTeXHookConfig = import('../types').KaTeXHookConfig
-type Store = import('@draft-js-hooks/editor').Store
+type Store = import('@draft-js-modules/editor').Store
 
 export function getInlineTeXDecorator(
   config: KaTeXHookConfig,

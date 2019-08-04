@@ -1,4 +1,4 @@
-import { Hook } from '@draft-js-hooks/editor'
+import { Hook } from '@draft-js-modules/editor'
 
 export type Direction = 'l' | 'r'
 

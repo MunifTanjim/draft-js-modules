@@ -6,7 +6,7 @@ export * from './types'
 
 type KaTeXHook = import('./types').KaTeXHook
 type KaTeXHookConfig = import('./types').KaTeXHookConfig
-type Store = import('@draft-js-hooks/editor').Store
+type Store = import('@draft-js-modules/editor').Store
 
 export function getKaTeXHook(config: KaTeXHookConfig = {}): KaTeXHook {
   const internals = getInternals(config)

@@ -1,20 +1,20 @@
-# @draft-js-hooks/katex
+# @draft-js-modules/katex
 
 ## Installation
 
 ```sh
 # using npm:
-npm install --save @draft-js-hooks/katex katex
+npm install --save @draft-js-modules/katex katex
 
 # using yarn:
-yarn add @draft-js-hooks/katex katex
+yarn add @draft-js-modules/katex katex
 ```
 
 ## Usage
 
 ```js
-import { getKaTeXHook } from '@draft-js-hooks/katex'
-import '@draft-js-hooks/katex/dist/styles.css'
+import { getKaTeXHook } from '@draft-js-modules/katex'
+import '@draft-js-modules/katex/dist/styles.css'
 import 'katex/dist/katex.min.css'
 
 const KaTeXHook = getKaTeXHook()

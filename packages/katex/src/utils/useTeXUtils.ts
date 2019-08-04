@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 type ContentState = import('draft-js').ContentState
 type Internals = import('../types').Internals
 type SelectionState = import('draft-js').SelectionState
-type Store = import('@draft-js-hooks/editor').Store
+type Store = import('@draft-js-modules/editor').Store
 type TeXState = import('../components/types').TeXState
 
 type TeXUtils = {

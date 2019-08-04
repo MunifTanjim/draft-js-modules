@@ -1,33 +1,33 @@
-.draft-js-hooks-katex.editing {
+.draft-js-modules-katex.editing {
   position: relative;
 }
 
-.draft-js-hooks-katex.INLINETEX {
+.draft-js-modules-katex.INLINETEX {
   display: inline-block;
 }
 
-.draft-js-hooks-katex .TeXInput {
+.draft-js-modules-katex .TeXInput {
   border: 1px dashed #843131;
   outline: none;
   font-size: 1em;
   box-shadow: 2px 2px 2px lightgray;
 }
 
-.draft-js-hooks-katex .TeX {
+.draft-js-modules-katex .TeX {
   cursor: pointer;
 }
 
-.draft-js-hooks-katex.INLINETEX .TeXInput {
+.draft-js-modules-katex.INLINETEX .TeXInput {
   text-align: center;
 }
 
-.draft-js-hooks-katex.TEXBLOCK .TeXInput {
+.draft-js-modules-katex.TEXBLOCK .TeXInput {
   display: block;
   margin: 0.5em auto;
   padding: 0.5em;
 }
 
-.draft-js-hooks-katex.editing .TeX {
+.draft-js-modules-katex.editing .TeX {
   position: absolute;
   top: calc(100% + 0.5em);
   left: 50%;
@@ -41,6 +41,6 @@
   box-shadow: 2px 2px 2px lightgray;
 }
 
-.draft-js-hooks-katex.TEXBLOCK.editing .TeX {
+.draft-js-modules-katex.TEXBLOCK.editing .TeX {
   padding: 0 1em;
 }

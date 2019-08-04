@@ -6,7 +6,7 @@ import TeXInput from './TeXInput'
 
 type ContentState = import('draft-js').ContentState
 type Internals = import('../types').Internals
-type Store = import('@draft-js-hooks/editor').Store
+type Store = import('@draft-js-modules/editor').Store
 type TeXState = import('./types').TeXState
 
 type InlineTeXProps = {
@@ -73,7 +73,7 @@ function InlineTeX({
 
   return (
     <span
-      className={`draft-js-hooks-katex INLINETEX${
+      className={`draft-js-modules-katex INLINETEX${
         state.editing ? ' editing' : ''
       }`}
     >
