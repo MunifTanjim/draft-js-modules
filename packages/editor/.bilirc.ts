@@ -4,7 +4,7 @@ const config: Config = {
   input: 'src/index.tsx',
   output: {
     format: ['esm', 'esm-min', 'umd', 'umd-min'],
-    moduleName: 'DraftHooks.Editor',
+    moduleName: 'DraftModules.Editor',
     sourceMap: false
   },
   extendConfig: (config, { format }) => {

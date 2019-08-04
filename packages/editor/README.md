@@ -18,7 +18,7 @@ import { EditorState } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 import React, { useCallback, useRef, useState } from 'react'
 
-const hooks = []
+const modules = []
 
 function DraftEditor() {
   const store = useRef(null)
@@ -37,8 +37,8 @@ function DraftEditor() {
       <Editor
         editorState={editorState}
         onChange={onChange}
-        placeholder="Draft.js Hooks Editor"
-        hooks={hooks}
+        placeholder="Editor for Draft.js Modules"
+        modules={modules}
         store={store}
       />
     </div>

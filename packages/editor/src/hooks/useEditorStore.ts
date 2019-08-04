@@ -2,23 +2,23 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 type EditorProps = import('../types').EditorProps
 type EditorState = import('draft-js').EditorState
-type Hook = import('../types').Hook
 type InternalStore = import('../types').InternalStore
+type Module = import('../types').Module
 type Store = import('../types').Store
 
 export function useEditorStore(
-  hooks: Hook[],
+  modules: Module[],
   { readOnly: _readOnly = false, editorState, onChange }: EditorProps
 ): InternalStore {
   const setEditorState = useCallback<EditorProps['onChange']>(
     (editorState: EditorState): void => {
       let newEditorState = editorState
-      hooks.forEach(({ onChange }): void => {
+      modules.forEach(({ onChange }): void => {
         if (onChange) newEditorState = onChange(newEditorState)
       })
       onChange(newEditorState)
     },
-    [hooks, onChange]
+    [modules, onChange]
   )
 
   const [__readOnly, setReadOnly] = useState(_readOnly)
@@ -47,10 +47,10 @@ export function useEditorStore(
   }, [])
 
   useEffect((): void => {
-    hooks.forEach(({ init }): void => {
+    modules.forEach(({ init }): void => {
       if (init) init(store.current)
     })
-  }, [hooks])
+  }, [modules])
 
   return {
     editor,

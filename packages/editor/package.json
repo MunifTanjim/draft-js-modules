@@ -1,7 +1,7 @@
 {
   "name": "@draft-js-modules/editor",
   "version": "0.0.0",
-  "description": "Draft.js Hooks Editor",
+  "description": "Editor component for Draft.js Modules",
   "keywords": [
     "draftjs",
     "editor",

@@ -53,7 +53,7 @@ type HandlePropNames =
 
 type MapPropNames = 'blockRenderMap' | 'customStyleMap'
 
-type HookableProps = Pick<Draft.EditorProps, MapPropNames> &
+type ModifiedEditorProps = Pick<Draft.EditorProps, MapPropNames> &
   {
     [P in FnPropNames | HandlePropNames]?: InjectStore<
       NonNullable<Draft.EditorProps[P]>
@@ -62,20 +62,20 @@ type HookableProps = Pick<Draft.EditorProps, MapPropNames> &
     decorators?: Draft.DraftDecorator[]
   }
 
-export type HookProps = HookableProps & {
+export type ModuleProps = ModifiedEditorProps & {
   onChange?: (editorState: Draft.EditorState) => Draft.EditorState
 }
 
-export interface Hook extends HookProps {
+export interface Module extends ModuleProps {
   init?: (store: Store) => void
   [key: string]: any
 }
 
 export type EditorProps = Pick<
   Draft.EditorProps,
-  Exclude<keyof Draft.EditorProps, keyof HookableProps>
+  Exclude<keyof Draft.EditorProps, keyof ModifiedEditorProps>
 > &
-  Pick<HookProps, keyof HookableProps> & {
-    hooks?: Hook[]
+  Pick<ModuleProps, keyof ModifiedEditorProps> & {
+    modules?: Module[]
     store?: React.MutableRefObject<Store | undefined>
   }

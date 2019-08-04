@@ -5,7 +5,7 @@ type DraftEditorCommand = import('draft-js').DraftEditorCommand
 type DraftHandleValue = import('draft-js').DraftHandleValue
 type EditorProps = import('../../types').EditorProps
 type EditorState = import('draft-js').EditorState
-type Hook = import('../../types').Hook
+type Module = import('../../types').Module
 type RegularEditorProps = import('draft-js').EditorProps
 type Store = import('../../types').Store
 
@@ -25,7 +25,7 @@ const defaultHandleKeyCommand = (
 }
 
 export const getHandleKeyCommand = (
-  hooks: Hook[],
+  modules: Module[],
   props: EditorProps,
   store: Store
 ): NonNullable<RegularEditorProps['handleKeyCommand']> => (
@@ -33,7 +33,7 @@ export const getHandleKeyCommand = (
 ): DraftHandleValue => {
   const handlers = [props.handleKeyCommand]
     .concat(
-      hooks.map(
+      modules.map(
         ({ handleKeyCommand }): EditorProps['handleKeyCommand'] =>
           handleKeyCommand
       )

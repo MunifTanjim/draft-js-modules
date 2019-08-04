@@ -1,17 +1,17 @@
 type EditorProps = import('../../types').EditorProps
-type Hook = import('../../types').Hook
+type Module = import('../../types').Module
 type RegularEditorProps = import('draft-js').EditorProps
 type Store = import('../../types').Store
 
 export const getBlockStyleFn = (
-  hooks: Hook[],
+  modules: Module[],
   props: EditorProps,
   store: Store
 ): NonNullable<RegularEditorProps['blockStyleFn']> => (
   block: Draft.ContentBlock
 ): string => {
   const blockStyleFns = [props.blockStyleFn].concat(
-    hooks.map(({ blockStyleFn }): EditorProps['blockStyleFn'] => blockStyleFn)
+    modules.map(({ blockStyleFn }): EditorProps['blockStyleFn'] => blockStyleFn)
   )
 
   for (const blockStyleFn of blockStyleFns) {

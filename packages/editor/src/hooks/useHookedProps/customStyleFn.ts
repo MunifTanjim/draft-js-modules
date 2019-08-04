@@ -1,13 +1,13 @@
 type ContentBlock = import('draft-js').ContentBlock
 type DraftInlineStyle = import('draft-js').DraftInlineStyle
 type EditorProps = import('../../types').EditorProps
-type Hook = import('../../types').Hook
+type Module = import('../../types').Module
 type RegularEditorProps = import('draft-js').EditorProps
 type Store = import('../../types').Store
 type StyleMap = import('draft-js').DraftStyleMap
 
 export const getCustomStyleFn = (
-  hooks: Hook[],
+  modules: Module[],
   props: EditorProps,
   store: Store
 ): NonNullable<RegularEditorProps['customStyleFn']> => (
@@ -15,7 +15,7 @@ export const getCustomStyleFn = (
   block: ContentBlock
 ): StyleMap => {
   const customStyleFns = [props.customStyleFn].concat(
-    hooks.map(
+    modules.map(
       ({ customStyleFn }): EditorProps['customStyleFn'] => customStyleFn
     )
   )
