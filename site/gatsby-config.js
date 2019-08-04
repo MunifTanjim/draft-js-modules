@@ -2,8 +2,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Draft.js Hooks`,
-    description: `Extend Draft.js with Hooks`,
+    title: `Draft.js Modules`,
+    description: `Extend Draft.js with Modules`,
     author: `Munif Tanjim`
   },
   plugins: [
@@ -14,8 +14,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `draft-js-hooks`,
-        short_name: `draft-js-hooks`,
+        name: `draft-js-modules`,
+        short_name: `draft-js-modules`,
         start_url: `/`,
         background_color: `#fdf3e7`,
         theme_color: `#843131`,

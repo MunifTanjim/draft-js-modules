@@ -1,12 +1,12 @@
 {
   "name": "site",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.0",
   "dependencies": {
-    "@draft-js-hooks/editor": "^0.1.0",
-    "@draft-js-hooks/hashtag": "^0.1.0",
-    "@draft-js-hooks/katex": "^0.1.0",
-    "@draft-js-hooks/stats": "^0.1.0",
+    "@draft-js-modules/editor": "^0.0.0",
+    "@draft-js-modules/hashtag": "^0.0.0",
+    "@draft-js-modules/katex": "^0.0.0",
+    "@draft-js-modules/stats": "^0.0.0",
     "babel-plugin-styled-components": "^1.10.1",
     "draft-js": "^0.11.0",
     "gatsby": "^2.13.24",
