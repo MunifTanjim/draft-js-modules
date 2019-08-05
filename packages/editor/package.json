@@ -1,6 +1,6 @@
 {
   "name": "@draft-js-modules/editor",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Editor component for Draft.js Modules",
   "keywords": [
     "draftjs",

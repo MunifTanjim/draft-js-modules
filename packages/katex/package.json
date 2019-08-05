@@ -1,6 +1,6 @@
 {
   "name": "@draft-js-modules/katex",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Draft.js KaTeX Module",
   "keywords": [
     "draftjs",
@@ -34,7 +34,7 @@
     "watch": "bili --format es --watch"
   },
   "devDependencies": {
-    "@draft-js-modules/editor": "^0.0.0",
+    "@draft-js-modules/editor": "^0.1.0",
     "katex": "^0.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
