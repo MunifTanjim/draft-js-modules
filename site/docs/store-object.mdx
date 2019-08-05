@@ -1,0 +1,13 @@
+# Store Object
+
+The store object contains some useful methods used for building the Draft.js Modules.
+
+| Method Name    | Description                           | Return Type              |
+| -------------- | ------------------------------------- | ------------------------ |
+| getEditor      | get reference to the Editor component | `Draft.Editor` or `null` |
+| getEditorState | read the current editorState          | `EditorState`            |
+| setEditorState | set the editorState                   | `undefined`              |
+| getReadOnly    | read the current readOnly status      | `boolean`                |
+| setReadOnly    | set the readOnly status               | `undefined`              |
+
+This store object is passed to the Editor component's [modified props functions](/editor-component#modified-props) and various module functions.

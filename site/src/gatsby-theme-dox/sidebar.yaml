@@ -1,0 +1,19 @@
+title: 'Draft.js Modules'
+items:
+  - title: Introduction
+    link: /
+  - title: Editor Component
+    link: /editor-component
+  - title: Module
+    link: /module
+  - title: Available Modules
+    link: /modules
+    items:
+      - title: Hashtag
+        link: /modules/hashtag
+      - title: KaTeX
+        link: /modules/katex
+      - title: Stats
+        link: /modules/stats
+  - title: Store Object
+    link: /store-object

@@ -12,17 +12,17 @@
     "gatsby": "^2.13.24",
     "gatsby-image": "^2.2.6",
     "gatsby-plugin-manifest": "^2.2.3",
-    "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-react-helmet": "^3.1.3",
     "gatsby-plugin-sharp": "^2.2.7",
     "gatsby-plugin-styled-components": "^3.1.2",
     "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-theme-dox": "^0.2.2",
     "gatsby-transformer-sharp": "^2.2.3",
     "katex": "^0.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1",
-    "rebass": "^3.1.1",
-    "styled-components": "^4.3.2"
+    "react-helmet": "^6.0.0-beta",
+    "theme-ui": "^0.2.23"
   },
   "scripts": {
     "build": "gatsby build",

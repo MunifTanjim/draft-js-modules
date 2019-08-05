@@ -1,0 +1,62 @@
+# Module
+
+A Draft.js Module is a plain JavaScript object containing the following properties:
+
+- `blockRendererFn`
+- `blockStyleFn`
+- `customStyleFn`
+- `keyBindingFn`
+
+* `handleKeyCommand`
+* `handleBeforeInput`
+* `handleDrop`
+* `handleDroppedFiles`
+* `handlePastedFiles`
+* `handlePastedText`
+* `handleReturn`
+
+- `blockRenderMap`
+- `customStyleMap`
+
+* `decorators`
+* `onChange`
+
+- `init`
+
+All the properties are optional and the object can also contain other properties if necessary.
+
+## Module Properties & Editor Component Props
+
+The properties of the Draft.js Module object are essentially the same as their [Editor Component props](/editor-component#props) counterparts, with the following exceptions:
+
+#### onChange
+
+The `onChange` function for the Editor Component doesn't need to return anything.
+
+But The `onChange` function for a Module must return the new `EditorState` value.
+
+#### init
+
+The `init` function only exists for Draft.js Modules.
+
+It will be called with a single argument: the [store object](/store-object).
+
+## Writing a Draft.js Module
+
+Although Draft.js Module is only an object, it is recommended not to export that object directly. Instead export a function that takes a single argument containing optional configuration for the Module. For example:
+
+```js
+const defaultConfig = {}
+
+export function getSomeModule(config = defaultConfig) {
+  const store = {}
+
+  function init(editorStore) {
+    Object.assign(store, editorStore)
+  }
+
+  return {
+    init
+  }
+}
+```

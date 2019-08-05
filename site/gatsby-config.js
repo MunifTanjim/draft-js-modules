@@ -7,8 +7,14 @@ module.exports = {
     author: `Munif Tanjim`
   },
   plugins: [
+    {
+      resolve: `gatsby-theme-dox`,
+      options: {
+        basePath: `/`,
+        contentPath: `docs`
+      }
+    },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

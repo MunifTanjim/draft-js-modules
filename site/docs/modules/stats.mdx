@@ -1,0 +1,33 @@
+# Stats Module
+
+## Installation
+
+```sh
+# using npm:
+npm install --save @draft-js-modules/stats
+
+# using yarn:
+yarn add @draft-js-modules/stats
+```
+
+## Configuration
+
+| Option    | Description     | Required |
+| --------- | --------------- | -------- |
+| Component | Stats component | :x: No   |
+
+## Usage
+
+```js
+import { getStatsModule } from '@draft-js-modules/stats'
+
+const { Stats, ...StatsModule } = getStatsModule()
+
+const modules = [StatsModule]
+```
+
+## Try it
+
+import StatsDemo from './stats-demo'
+
+<StatsDemo />

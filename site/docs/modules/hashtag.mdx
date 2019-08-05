@@ -1,0 +1,37 @@
+# Hashtag Module
+
+## Installation
+
+```sh
+# using npm:
+npm install --save @draft-js-modules/hashtag
+
+# using yarn:
+yarn add @draft-js-modules/hashtag
+```
+
+## Configuration
+
+| Option    | Description                        | Required |
+| --------- | ---------------------------------- | -------- |
+| Component | Hashtag component                  | :x: No   |
+| props     | custom props for Hashtag component | :x: No   |
+
+## Usage
+
+```js
+import { getHashtagModule } from '@draft-js-modules/hashtag'
+
+const HashtagModule = getHashtagModule({
+  Component: ({ children, style }) => <span style={style}>{children}</span>,
+  props: { style: { color: 'rebeccapurple' } }
+})
+
+const modules = [HashtagModule]
+```
+
+## Try it
+
+import HashtagDemo from './hashtag-demo'
+
+<HashtagDemo />

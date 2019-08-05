@@ -1,0 +1,97 @@
+# Editor Component
+
+At the heart of Draft.js Modules is an Editor component. It has a slightly different API from the original `Editor` component from the `draft-js` package.
+
+## Installation
+
+```sh
+# using npm:
+npm install --save @draft-js-modules/editor
+
+# using yarn:
+yarn add @draft-js-modules/editor
+```
+
+## Usage
+
+```js
+import { Editor } from '@draft-js-modules/editor'
+import { EditorState } from 'draft-js'
+import React, { useCallback, useRef, useState } from 'react'
+
+const modules = []
+
+function DraftEditor() {
+  const store = useRef(null)
+  const [editorState, setEditorState] = useState(EditorState.createEmpty())
+
+  const onClick = useCallback(() => {
+    store.current.getEditor().focus()
+  }, [])
+
+  return (
+    <div onClick={onClick}>
+      <Editor
+        editorState={editorState}
+        onChange={setEditorState}
+        modules={modules}
+        store={store}
+      />
+    </div>
+  )
+}
+
+export default DraftEditor
+```
+
+## Props
+
+The Editor component accepts all the props present in the original [Editor Component docs](https://draftjs.org/docs/api-reference-editor) with the exceptions listed below.
+
+### Extra Props
+
+These props are introduced by the `@draft-js-modules/editor` package.
+
+#### decorators
+
+| Description                                                                     | Default     | Required |
+| ------------------------------------------------------------------------------- | ----------- | -------- |
+| Array of [DraftDecorator](https://draftjs.org/docs/advanced-topics-decorators)s | `undefined` | :x: No   |
+
+#### modules
+
+| Description                          | Default | Required |
+| ------------------------------------ | ------- | -------- |
+| Array of [Draft.js Module](/module)s | `[]`    | :x: No   |
+
+#### store
+
+| Description                                                                                                                                                                           | Default     | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------- |
+| React mutable ref object returned by [`useRef` hook](https://reactjs.org/docs/hooks-reference.html#useref). The `.current` property will be set to the [store object](/store-object). | `undefined` | :x: No   |
+
+### Modified Props
+
+The following props are modified version of their original Editor's props counterpart:
+
+- `blockRendererFn`
+- `blockStyleFn`
+- `customStyleFn`
+- `keyBindingFn`
+- `handleKeyCommand`
+- `handleBeforeInput`
+- `handleDrop`
+- `handleDroppedFiles`
+- `handlePastedFiles`
+- `handlePastedText`
+- `handleReturn`
+
+You can see details about them on the original [Editor Component's documentation](https://draftjs.org/docs/api-reference-editor#props).
+
+But, as mentioned above, they are slightly modified. Each of them receives an extra [store object](/store-object) as their first argument. The rest of the arguments are same as their original counterpart.
+
+For example, the function signature for `keyBindingFn` is:
+
+```js
+keyBindingFn?: (store: Store, event: KeyboardEvent) => string | null
+```
